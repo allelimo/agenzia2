@@ -17,9 +17,12 @@ namespace agenzia2.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
 
             // alle qui: caricare i dati negli array
-            GlobalData.LoadDatainArray("art15.txt", GlobalData.myarray1);
+            GlobalData.LoadDatainArray("auto.txt", GlobalData.arrayauto);
+            GlobalData.LoadDatainArray("auto_esente.txt", GlobalData.arrayauto_esente);
+            GlobalData.LoadDatainArray("auto_impiva.txt", GlobalData.arrayauto_impiva);
+
             //! solo test
-            GlobalData.OpenSettingFile("art14.txt");
+            //GlobalData.OpenSettingFile("auto.txt");
 
             // alle selezionare la text box dei kwh
             // ? non funziona: TxtKwh.Focus(FocusState.Programmatic);
@@ -47,18 +50,18 @@ namespace agenzia2.Views
         // alle variabili per toggleswitch
         private bool bPRA, bEpoca, bDoppia = false;
         //alle variabili per ipt con default
-        private double dbPra = 76.60;
-        private double dbMtc = 29.76;
-        private double dbAltre = 6;
-        private double dbCorrispettivi = 118.34;
-        private double db53esente = 0;
-        private double db53impiva = 92.44;
-        private double dbPraDini = 63.1;
-        private double dbNotaPra = 20;
+        //private double dbPra = 76.60;
+        //private double dbMtc = 29.76;
+        //private double dbAltre = 6;
+        //private double dbCorrispettivi = 118.34;
+        //private double db53esente = 0;
+        //private double db53impiva = 92.44;
+        //private double dbPraDini = 63.1;
+        //private double dbNotaPra = 20;
 
-        private int sconto1 = 15;
-        private int sconto2 = 10;
-        private int sconto3 = 5;
+        //private int sconto1 = 15;
+        //private int sconto2 = 10;
+        //private int sconto3 = 5;
 
         private void RdbGruppo_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -103,11 +106,23 @@ namespace agenzia2.Views
         //alle calcola ipt proporzionale usando i dati degli array
         private void CalcolaIptProporzionale()
         {
+            //carica i valori dell'array auto
+            double dbPra = double.Parse(GlobalData.arrayauto[0]);
+            double dbMtc = double.Parse(GlobalData.arrayauto[1]);
+            double dbAltre = double.Parse(GlobalData.arrayauto[2]);
+            double dbCorrispettivi = double.Parse(GlobalData.arrayauto[3]);
+            double db53esente = double.Parse(GlobalData.arrayauto[4]);
+            double db53impiva = double.Parse(GlobalData.arrayauto[5]);
+            double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
+            int sconto1 = int.Parse(GlobalData.arrayauto[7]);
+            int sconto2 = int.Parse(GlobalData.arrayauto[8]);
+            int sconto3 = int.Parse(GlobalData.arrayauto[9]);
+            int sconto = 0;
             //alle controlla se c'è input, se no annulla la funzione
             if (!string.IsNullOrEmpty(TxtKwh.Text))
             {
                 int numKwh = int.Parse(TxtKwh.Text);
-                db53esente = 307.56;
+ //               db53esente = 307.56;
 
                 if (numKwh <54)
                 {
@@ -115,9 +130,9 @@ namespace agenzia2.Views
                         db53esente += dbNotaPra;
 
                     double db53totale = db53esente + db53impiva;
-                    TxtEsente.Text = db53esente.ToString();
-                    TxtImpiva.Text = db53impiva.ToString();
-                    TxtTotale.Text = db53totale.ToString();
+                    TxtEsente.Text = db53esente.ToString("N2");
+                    TxtImpiva.Text = db53impiva.ToString("N2");
+                    TxtTotale.Text = db53totale.ToString("n2");
 
                 }
                 else
@@ -125,7 +140,14 @@ namespace agenzia2.Views
                     //arrotonda normale
                     double dbIpt = Math.Round(numKwh * 4.57);
 
-                    double dbTemptot = dbIpt + dbMtc + dbPra + dbAltre + dbCorrispettivi - sconto1;
+                    if (numKwh < 121)
+                        sconto = sconto1;
+                    else if (numKwh < 231)
+                        sconto = sconto2;
+                    else
+                        sconto = sconto3;
+
+                    double dbTemptot = dbIpt + dbMtc + dbPra + dbAltre + dbCorrispettivi - sconto;
                     //arrotonda al 5 piu vicino
                     double dbTotale = 5 * (int)Math.Round(dbTemptot / 5);
                     double dbEsente = dbIpt + dbMtc + dbPra;
@@ -138,9 +160,9 @@ namespace agenzia2.Views
 
                     double dbImpiva = dbTotale - dbEsente;
 
-                    TxtTotale.Text = dbTotale.ToString();
-                    TxtImpiva.Text = dbImpiva.ToString();
-                    TxtEsente.Text = dbEsente.ToString();
+                    TxtTotale.Text = dbTotale.ToString("N2");
+                    TxtImpiva.Text = dbImpiva.ToString("N2");
+                    TxtEsente.Text = dbEsente.ToString("N2");
                 }
             }
         }
@@ -155,19 +177,37 @@ namespace agenzia2.Views
             args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
         }
 
+        private void HyperlinkButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            //GlobalData.OpenSettingFile("auto.txt");
+            HyperlinkButton hpl = sender as HyperlinkButton;
+            GlobalData.OpenSettingFile(hpl.Name + ".txt");
+        }
+
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
         {
-            string strImpiva;
-            string strEsente;
+
+            double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
             //numKwh = int.Parse(TxtKwh.Text);
             int myScelta = ScegliCaso();
 
-            strImpiva = GlobalData.myarray1[myScelta];
-            strEsente = GlobalData.myarray1[myScelta];
+            string strImpiva = GlobalData.arrayauto_impiva[myScelta-2];
+            string strEsente = GlobalData.arrayauto_esente[myScelta-2];
 
-            TxtImpiva.Text = "strImpiva";
-            TxtEsente.Text = "strEsente";
+            double dbImpiva = double.Parse(strImpiva);
+            double dbEsente = double.Parse(strEsente);
+
+            if (bPRA)
+            {
+                dbEsente += dbNotaPra;
+            }
+
+            double dbTotale = dbImpiva + dbEsente;
+
+            TxtImpiva.Text = strImpiva;
+            TxtEsente.Text = dbEsente.ToString("N2");
+            TxtTotale.Text = dbTotale.ToString("N2");
 
 
         }

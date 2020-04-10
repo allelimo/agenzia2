@@ -12,7 +12,9 @@ namespace agenzia2
     public static class GlobalData
     {
         // alle inserire qui gli array comuni per le diverse view
-        public static string[] myarray1 = new string[10];
+        public static string[] arrayauto = new string[10];
+        public static string[] arrayauto_esente = new string[10];
+        public static string[] arrayauto_impiva = new string[10];
 
         //? inserito il controllo dell'essitenza del file
         public static async void LoadDatainArray(string myfile_to_open, Array my_array_to_load)
