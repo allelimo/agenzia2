@@ -167,19 +167,15 @@ namespace agenzia2.Views
             }
         }
 
-        //private void TxtKwh_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
-        //{
-        //    sender.Text = new String(sender.Text.Where(char.IsDigit)ToArray());
-        //}
-
+        //alle si assicura ceh nel campo kwh possano essere digitati solo numeri
         private void TxtKwh_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {
             args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
         }
 
+        //alle apre i file di configurazione. usa il trucco di chiamare il bottone come il file da aprire
         private void HyperlinkButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            //GlobalData.OpenSettingFile("auto.txt");
             HyperlinkButton hpl = sender as HyperlinkButton;
             GlobalData.OpenSettingFile(hpl.Name + ".txt");
         }
@@ -187,30 +183,29 @@ namespace agenzia2.Views
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
         {
-
+            //recupera il valore di nota pra
             double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
-            //numKwh = int.Parse(TxtKwh.Text);
+            //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
-
-            string strImpiva = GlobalData.arrayauto_impiva[myScelta-2];
-            string strEsente = GlobalData.arrayauto_esente[myScelta-2];
-
+            //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 2
+            string strImpiva = GlobalData.arrayauto_impiva[myScelta - 2];
+            string strEsente = GlobalData.arrayauto_esente[myScelta - 2];
+            // trasformiamo in numeri
             double dbImpiva = double.Parse(strImpiva);
             double dbEsente = double.Parse(strEsente);
-
+            // conrrolliamo se c'è la nota PRA
             if (bPRA)
             {
                 dbEsente += dbNotaPra;
             }
-
+            // calcoliamo il totale
             double dbTotale = dbImpiva + dbEsente;
-
+            // aggiorniamo la view
             TxtImpiva.Text = strImpiva;
             TxtEsente.Text = dbEsente.ToString("N2");
             TxtTotale.Text = dbTotale.ToString("N2");
-
-
         }
+
         //alle controlla bottoni e switch per decidere il tipo di tarsferimento richiesto
         private int ScegliCaso()
         {

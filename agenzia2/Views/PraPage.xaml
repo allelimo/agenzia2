@@ -9,6 +9,25 @@
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" TabIndex="1" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" TabIndex="2" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
+            <ToggleSwitch x:Name="TswPra" Header="Usa nota PRA" Margin="0,268,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <RadioButton x:Name="RdbCDP" Content="Duplicato CDP" Margin="300,24,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RdbGruppo_Checked" TabIndex="5"/>
+            <RadioButton x:Name="RdbPposs" Content="Perdita di possesso" Margin="300,81,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="6"/>
+            <RadioButton x:Name="RdbEsp" Content="Esportazione" Margin="300,137,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="7"/>
+            <RadioButton x:Name="RdbRinnAuto" Content="Rinnovo immatricolazione auto" Margin="300,194,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <RadioButton x:Name="RdbRinnMoto" Content="Rinnovo immatricolazione moto" Margin="300,231,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <RadioButton x:Name="RdbRettifica" Content="Rettifica intestazione" Margin="300,268,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <RadioButton x:Name="RdbVisura" Content="Visura" Margin="300,307,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <RadioButton x:Name="RdbCrono" Content="Estratto cronologico" Margin="300,0,0,0" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <ToggleSwitch x:Name="TswDeterioramento" Header="Deterioramento" Margin="525,4,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <ToggleSwitch x:Name="TswCrono" Header="Crono" Margin="525,60,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <ToggleSwitch x:Name="TswExtraUE" Header="Extra UE" Margin="525,117,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11"/>
+            <HyperlinkButton x:Name="auto" Content="Apri il file di configurazione per IPT fissa" Margin="0,479,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
+            <HyperlinkButton x:Name="auto_esente" Content="Apri il file di configurazione per art. 15" Margin="0,511,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
+            <HyperlinkButton x:Name="auto_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,543,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.
