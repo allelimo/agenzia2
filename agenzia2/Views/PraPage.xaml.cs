@@ -130,7 +130,7 @@ namespace agenzia2.Views
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
         {
-            ScegliCaso();
+            //ScegliCaso();
             //recupera il valore di nota pra
             double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
             //controlla il caso che dobbiamo calcolare
@@ -154,18 +154,19 @@ namespace agenzia2.Views
             TxtTotale.Text = dbTotale.ToString("N2");
         }
 
-        private async void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ScegliCaso();
-            var mydlg = new MessageDialog(ScegliCaso().ToString());
-            await mydlg.ShowAsync();
+            //ScegliCaso();
+            //var mydlg = new MessageDialog(ScegliCaso().ToString());
+            //await mydlg.ShowAsync();
             CalcolaIptFissa();
 
         }
 
         private void HyperlinkButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-
+            HyperlinkButton hpl = sender as HyperlinkButton;
+            GlobalData.OpenSettingFile(hpl.Name + ".txt");
         }
     }
 }

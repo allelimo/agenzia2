@@ -17,6 +17,8 @@ namespace agenzia2
         public static string[] arrayauto_impiva = new string[10];
         public static string[] arraypra_impiva = new string[12];
         public static string[] arraypra_esente = new string[12];
+        public static string[] arraymtc_impiva = new string[8];
+        public static string[] arraymtc_esente = new string[8];
 
         //? inserito il controllo dell'essitenza del file
         public static async void LoadDatainArray(string myfile_to_open, Array my_array_to_load)
