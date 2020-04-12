@@ -139,5 +139,115 @@ namespace agenzia2.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+        //alle da qui implementazione della searchbox
+        private async void NavViewSearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                string text = sender.Text;
+
+                if (sender.Text.Length > 1)
+                {
+                    sender.ItemsSource = this.GetSuggestions(sender.Text);
+                }
+                else
+                {
+                    sender.ItemsSource = await Task<string[]>.Run(() => { return this.GetSuggestions(text); }); // new string[] { "No suggestions..." };
+                }
+            }
+        }
+        //alle elenco delle parole con cui cercare le pagine
+        private string[] suggestions = new string[] {   "art. 94",
+                                                        "auto epoca",
+                                                        "autocarro",
+                                                        "cambio indirizzo",
+                                                        "camion",
+                                                        "camper",
+                                                        "carta di circolazione",
+                                                        "cdp",
+                                                        "ciclomotore",
+                                                        "comodato d'uso",
+                                                        "crono",
+                                                        "divorzio",
+                                                        "duplicato cdp",
+                                                        "esportazione",
+                                                        "furgone",
+                                                        "libretto",
+                                                        "motociclo",
+                                                        "motorizzazione",
+                                                        "mtc",
+                                                        "negozio mobile",
+                                                        "patente",
+                                                        "perdita di possesso",
+                                                        "pra",
+                                                        "separazione",
+                                                        "speciale",
+                                                        "targa prova",
+                                                        "variazione anagrafica",
+                                                        "visura" };
+        private string[] GetSuggestions(string text)
+        {
+            string[] result = null;
+            result = suggestions.Where(x => x.Contains(text)).ToArray();
+            return result;
+        }
+
+        private void NavViewSearchBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            string text = (string)args.SelectedItem;
+            int i = SelectMyCase(text);
+
+            switch (i)
+            {
+                case 1:
+                    NavigationService.Navigate(typeof(AutoPage));
+                    break;
+                case 2:
+                    NavigationService.Navigate(typeof(MotoPage));
+                    break;
+                case 3:
+                    NavigationService.Navigate(typeof(SpecialePage));
+                    break;
+                case 4:
+                    NavigationService.Navigate(typeof(CamionPage));
+                    break;
+                case 5:
+                    NavigationService.Navigate(typeof(PraPage));
+                    break;
+                case 6:
+                    NavigationService.Navigate(typeof(MtcPage));
+                    break;
+                case 7:
+                    NavigationService.Navigate(typeof(PatentiPage));
+                    break;
+                case 8:
+                    NavigationService.Navigate(typeof(CicloPage));
+                    break;
+
+            }
+        }
+        private int SelectMyCase(string t)
+        {
+            if (t == "autovettura" || t == "eredità auto" || t == "auto epoca" || t == "separazione" || t == "divorzio")
+                return 1;
+            else if (t == "motociclo")
+                return 2;
+            else if (t == "speciale" || t == "camper" || t == "negozio mobile")
+                return 3;
+            else if (t == "camion" || t == "furgone" || t == "autocarro")
+                return 4;
+            else if (t == "pra" || t == "duplicato cdp" || t == "cdp" || t == "perdita di possesso" || t == "esportazione" || t == "visura" || t == "crono")
+                return 5;
+            else if (t == "mtc" || t == "motorizzazione" || t == "carta di circolazione" || t == "libretto" || t == "targa prova" || t == "art. 94" || t == "comodato d'uso" || t == "cambio indirizzo" || t == "variazione anagrafica")
+                return 6;
+            else if (t == "patente")
+                return 7;
+            else if (t == "ciclomotore")
+                return 8;
+            else
+                return 0;
+        }
     }
 }

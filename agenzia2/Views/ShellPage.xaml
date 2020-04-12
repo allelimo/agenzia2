@@ -97,8 +97,12 @@
                               13.07 22.5 15S20.93 18.5 19 18.5Z" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
-
         </winui:NavigationView.MenuItems>
+
+        <winui:NavigationView.AutoSuggestBox>
+            <AutoSuggestBox x:Name="NavViewSearchBox" QueryIcon="Find" TextChanged="NavViewSearchBox_TextChanged" SuggestionChosen="NavViewSearchBox_SuggestionChosen" />
+        </winui:NavigationView.AutoSuggestBox>
+
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
                 DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">
