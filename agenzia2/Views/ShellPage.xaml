@@ -27,14 +27,77 @@
             Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
-            <winui:NavigationViewItem x:Uid="Shell_Auto" Icon="Document" helpers:NavHelper.NavigateTo="views:AutoPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Moto" Icon="Document" helpers:NavHelper.NavigateTo="views:MotoPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Speciale" Icon="Document" helpers:NavHelper.NavigateTo="views:SpecialePage" />
-            <winui:NavigationViewItem x:Uid="Shell_Camion" Icon="Document" helpers:NavHelper.NavigateTo="views:CamionPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Pra" Icon="Document" helpers:NavHelper.NavigateTo="views:PraPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Mtc" Icon="Document" helpers:NavHelper.NavigateTo="views:MtcPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Patenti" Icon="Document" helpers:NavHelper.NavigateTo="views:PatentiPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Ciclo" Icon="Document" helpers:NavHelper.NavigateTo="views:CicloPage" />
+            <winui:NavigationViewItem x:Uid="Shell_Auto" helpers:NavHelper.NavigateTo="views:AutoPage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M5,11L6.5,6.5H17.5L19,11M17.5,16A1.5,1.5 0 0,1 16,14.5A1.5,1.5 0 0,1
+                              17.5,13A1.5,1.5 0 0,1 19,14.5A1.5,1.5 0 0,1 17.5,16M6.5,16A1.5,1.5 0 0,1 5,14.5A1.5,1.5
+                              0 0,1 6.5,13A1.5,1.5 0 0,1 8,14.5A1.5,1.5 0 0,1 6.5,16M18.92,6C18.72,5.42 18.16,5 17.5,5H6.5C5.84,5
+                              5.28,5.42 5.08,6L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0
+                              0,0 21,20V12L18.92,6Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            
+            <winui:NavigationViewItem x:Uid="Shell_Moto" helpers:NavHelper.NavigateTo="views:MotoPage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M17.42,10L13.41,6H9V8H12.59L14.59,10H6.5C4,10 2,12 2,14.5C2,17 4,19 6.5,19C8.72,19
+                              10.56,17.38 10.92,15.27L13.04,14C13,14.17 13,14.33 13,14.5C13,17 15,19 17.5,19C20,19 22,17
+                              22,14.5C22,12 20,10 17.5,10M8.84,15.26C8.5,16.27 7.58,17 6.47,17C5.09,17 3.97,15.88 3.97,14.5C3.97,13.12
+                              5.09,12 6.47,12C7.59,12 8.5,12.74 8.84,13.75H6V15.25L8.84,15.26M17.47,17C16.09,17
+                              14.97,15.88 14.97,14.5C14.97,13.12 16.09,12 17.47,12A2.5,2.5 0 0,1 19.97,14.5A2.5,2.5 0 0,1 17.47,17Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+
+            <winui:NavigationViewItem x:Uid="Shell_Speciale" helpers:NavHelper.NavigateTo="views:SpecialePage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M20 8H22V6L20 4H3A2 2 0 0 0 1 6V15A2 2 0 0 0 3 17H4A3 3 0 0 0 7 20A3 3 0 0 0 10 17H15A3
+                              3 0 0 0 21 17H23V12M7 18.5A1.5 1.5 0 0 1 7 15.5A1.5 1.5 0 0 1 7 18.5M9 12H3V9H9M14 15H11V9H14M18
+                              18.5A1.5 1.5 0 1 1 19.5 17A1.54 1.54 0 0 1 18 18.5M17 12V9.5H19.5L21.5 12Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+
+            <winui:NavigationViewItem x:Uid="Shell_Camion" helpers:NavHelper.NavigateTo="views:CamionPage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0
+                              0,1 18,18.5M19.5,9.5L21.46,12H17V9.5M6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0
+                              0,1 7.5,17A1.5,1.5 0 0,1 6,18.5M20,8H17V4H3C1.89,4 1,4.89 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0
+                              0,0 18,20A3,3 0 0,0 21,17H23V12L20,8Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+
+            <winui:NavigationViewItem x:Uid="Shell_Pra" helpers:NavHelper.NavigateTo="views:PraPage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M5,3V21H11V17.5H13V21H19V3H5M7,5H9V7H7V5M11,5H13V7H11V5M15,5H17V7H15V5M7,9H9V11H7V9M11,9H13V11H11V9M15,
+                              9H17V11H15V9M7,13H9V15H7V13M11,13H13V15H11V13M15,13H17V15H15V13M7,17H9V19H7V17M15,17H17V19H15V17Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+
+            <winui:NavigationViewItem x:Uid="Shell_Mtc" helpers:NavHelper.NavigateTo="views:MtcPage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M22 9V20H20V11H4V20H2V9L12 5L22 9M19 12H5V14H19V12M19 18H5V20H19V18M19 15H5V17H19V15Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+
+            <winui:NavigationViewItem x:Uid="Shell_Patenti" helpers:NavHelper.NavigateTo="views:PatentiPage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M2,3H22C23.05,3 24,3.95 24,5V19C24,20.05 23.05,21 22,21H2C0.95,21 0,20.05 0,19V5C0,3.95 0.95,3
+                              2,3M14,6V7H22V6H14M14,8V9H21.5L22,9V8H14M14,10V11H21V10H14M8,13.91C6,13.91 2,15 2,17V18H14V17C14,15
+                              10,13.91 8,13.91M8,6A3,3 0 0,0 5,9A3,3 0 0,0 8,12A3,3 0 0,0 11,9A3,3 0 0,0 8,6Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+
+            <winui:NavigationViewItem x:Uid="Shell_Ciclo" helpers:NavHelper.NavigateTo="views:CicloPage">
+                <winui:NavigationViewItem.Icon>
+                    <PathIcon Data="M19 10C18.44 10 17.91 10.11 17.41 10.28L14.46 4.5H11V6H13.54L14.42 7.72L12 13.13L10.23 8.95C10.5
+                              8.85 10.74 8.58 10.74 8.25C10.74 7.84 10.41 7.5 10 7.5H8C7.58 7.5 7.24 7.84 7.24 8.25S7.58 9 8
+                              9H8.61L10.86 14.25H9.92C9.56 11.85 7.5 10 5 10C2.24 10 0 12.24 0 15S2.24 20 5 20C7.5 20 9.56 18.15
+                              9.92 15.75H12.5L15.29 9.43L16.08 10.96C14.82 11.87 14 13.34 14 15C14 17.76 16.24 20 19 20S24 17.76 24 15
+                              21.76 10 19 10M5 18.5C3.07 18.5 1.5 16.93 1.5 15S3.07 11.5 5 11.5C6.67 11.5 8.07 12.68 8.41
+                              14.25H4V15.75H8.41C8.07 17.32 6.67 18.5 5 18.5M19 18.5C17.07 18.5 15.5 16.93 15.5 15C15.5 13.92 16
+                              12.97 16.77 12.33L18.57 15.85L19.89 15.13L18.1 11.63C18.39 11.56 18.69 11.5 19 11.5C20.93 11.5 22.5
+                              13.07 22.5 15S20.93 18.5 19 18.5Z" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
