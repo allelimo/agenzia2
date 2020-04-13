@@ -20,6 +20,9 @@ namespace agenzia2.Views
             GlobalData.LoadDatainArray("moto_esente.txt", GlobalData.arraymoto_esente);
             GlobalData.LoadDatainArray("moto_impiva.txt", GlobalData.arraymoto_impiva);
 
+
+
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

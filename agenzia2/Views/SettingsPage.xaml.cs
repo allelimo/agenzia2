@@ -1,7 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -56,21 +54,24 @@ namespace agenzia2.Views
         private string GetVersionDescription()
         {
             //! the original version
-            var appName = "AppDisplayName".GetLocalized();
+            //var appName = "AppDisplayName".GetLocalized();
             //var package = Package.Current;
             //var packageId = package.Id;
             //var version = packageId.Version;
 
-            var currentAssembly = typeof(App).GetTypeInfo().Assembly;
-            var customAttributes = currentAssembly.CustomAttributes;
-            var list = customAttributes.ToList();
-            var res = list[0];
-            var result = list.FirstOrDefault(x => x.AttributeType.Name == "AssemblyFileVersionAttribute");
-            var ver = result.ConstructorArguments[0].Value;
+            //var currentAssembly = typeof(App).GetTypeInfo().Assembly;
+            //var customAttributes = currentAssembly.CustomAttributes;
+            //var list = customAttributes.ToList();
+            //var res = list[0];
+            //var result = list.FirstOrDefault(x => x.AttributeType.Name == "AssemblyFileVersionAttribute");
+            //var ver = result.ConstructorArguments[0].Value;
+
+            var appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 
             //! the original version
             // return $"{appName} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
-            return $"{ appName } - { ver }";
+            return $"{ appName } - { version }";
         }
 
         private async void ThemeChanged_CheckedAsync(object sender, RoutedEventArgs e)
