@@ -75,12 +75,28 @@ namespace agenzia2.Views
             {
                 TswPra.IsOn = true;
                 bPRA = true;
+                TswEpoca.IsOn = false;
+                bEpoca = false;
+                TswDoppia.IsOn = false;
+                bDoppia = false;
             }
             else
             {
-                TswPra.IsOn = false;
-                bPRA = false;
-
+                if (TswPra != null)
+                {
+                    TswPra.IsOn = false;
+                    bPRA = false;
+                }
+                if (TswEpoca != null)
+                {
+                    TswEpoca.IsOn = false;
+                    bEpoca = false;
+                }
+                if (TswDoppia != null)
+                {
+                    TswDoppia.IsOn = false;
+                    bDoppia = false;
+                }
             }
         }
         private void Tsw_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)

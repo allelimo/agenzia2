@@ -19,8 +19,11 @@ namespace agenzia2
         public static string[] arraypra_esente = new string[12];
         public static string[] arraymtc_impiva = new string[8];
         public static string[] arraymtc_esente = new string[8];
+        public static string[] arraymoto_impiva = new string[9];
+        public static string[] arraymoto_esente = new string[9];
 
         //? inserito il controllo dell'essitenza del file
+        /// vediamo sea ppare qeuata linea
         public static async void LoadDatainArray(string myfile_to_open, Array my_array_to_load)
         {
             int i = 0;
@@ -55,7 +58,7 @@ namespace agenzia2
             }
             catch (Exception)
             {
-                MessageDialog mydlg = new MessageDialog("File di configurazione non presenti 1");
+                MessageDialog mydlg = new MessageDialog("File di configurazione non presenti in caricamento");
                 await mydlg.ShowAsync();
             }
         }
@@ -76,7 +79,7 @@ namespace agenzia2
             }
             catch (Exception)
             {
-                MessageDialog mydlg = new MessageDialog("File di configurazione non presenti 4");
+                MessageDialog mydlg = new MessageDialog("File di configurazione non presenti in apertura");
                 await mydlg.ShowAsync();
             }
         }

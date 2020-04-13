@@ -76,19 +76,19 @@ namespace agenzia2.Views
         private int ScegliCaso()
         {
             if (MyRdbScelta == "RdbCCagg")
-                return 0; //!duplicato cdp
+                return 0; //!aggiornamento cc
             if (MyRdbScelta == "RdbCCdupl" && !bDeterioramento)
-                return 1; //!duplicato cdp deterioramento
+                return 1; //!duplicato cc furto
             else if (MyRdbScelta == "RdbCCdupl" && bDeterioramento)
-                return 2; //!perdita possesso
+                return 2; //!duplicato cc deterioramento
             else if (MyRdbScelta == "RdbVendita")
-                return 3; //!perdita possesso + crono
+                return 3; //!vendita rimorchio
             else if (MyRdbScelta == "RdbArt94" && !bAzienda)
-                return 4; //!esportazione UE
+                return 4; //!art.94
             else if (MyRdbScelta == "RdbArt94" && bAzienda)
-                return 5; //!esportazione extra UE
+                return 5; //!art.94 per azienda
             else if (MyRdbScelta == "RdbTargarip")
-                return 6; //!esportazione extra UE
+                return 6; //!targa ripetitrice
 
             else
                 return 7;
