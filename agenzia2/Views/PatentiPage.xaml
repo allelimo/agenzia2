@@ -9,6 +9,29 @@
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" TabIndex="1" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" TabIndex="2" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
+            <RadioButton x:Name="RdbCCagg" Content="Rinnovo " Margin="300,24,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RdbGruppo_Checked" TabIndex="5"/>
+            <RadioButton x:Name="RdbCCdupl" Content="Rinnovo e variazione dati" Margin="300,81,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="6"/>
+            <RadioButton x:Name="RdbVendita" Content="Duplicato " Margin="300,138,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="7"/>
+            <RadioButton x:Name="RdbArt94" Content="Riclassificazione" Margin="300,195,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <RadioButton x:Name="RdbTargarip" Content="Internazionale" Margin="300,252,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <ToggleSwitch x:Name="TswDeterioramento" Header="" OnContent="Nuovo CM" OffContent="Nuovo CM" Margin="525,82,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11"/>
+            <HyperlinkButton x:Name="mtc_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
+            <HyperlinkButton x:Name="mtc_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="335,50,0,0" Text="Cambio indirizzo, Vendita solo MTC" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="30" Width="172"/>
+            <TextBlock HorizontalAlignment="Left" Margin="335,106,0,0" Text="Smarrimento, furto, deterioramento" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="27" Width="135"/>
+            <TextBlock HorizontalAlignment="Left" Margin="335,220,0,0" Text="Comodato d'uso, Successione, Cambio Ragione Sociale " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="29" Width="169"/>
+            <RadioButton x:Name="RdbTargarip_Copy" Content="Conversione estera" Margin="300,309
+                         ,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
+            <ToggleSwitch x:Name="TswDeterioramento_Copy" Header="" OnContent="solo visita" OffContent="solo visita" Margin="525,24,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <ToggleSwitch x:Name="TswDeterioramento_Copy1" Header="" OnContent="Visita fatta" OffContent="Visita fatta" Margin="525,106,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4" AllowDrop="True"/>
+            <ToggleSwitch x:Name="TswDeterioramento_Copy2" Header="" OnContent="Smarrimento" OffContent="Smarrimento" Margin="525,138,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <ToggleSwitch x:Name="TswDeterioramento_Copy3" Header="" OnContent="Variazione dati" OffContent="Variazione dati" Margin="525,162,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4" AllowDrop="True"/>
+            <CheckBox Content="Smarrimento" Margin="525,195,0,0" VerticalAlignment="Top"/>
+
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.
