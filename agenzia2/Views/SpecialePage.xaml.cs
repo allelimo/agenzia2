@@ -172,6 +172,11 @@ namespace agenzia2.Views
             GlobalData.OpenSettingFile(hpl.Name + ".txt");
         }
 
+        private void TxtKwh_GotFocus(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            TxtKwh.SelectAll();
+        }
+
 
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()

@@ -25,8 +25,12 @@ namespace agenzia2.Views
             //GlobalData.OpenSettingFile("auto.txt");
 
             // alle selezionare la text box dei kwh
-            // ? non funziona: TxtKwh.Focus(FocusState.Programmatic);
-            TxtKwh.SelectAll();
+            // ? non funziona:
+            //TxtKwh.Focus(FocusState.Programmatic);
+            //TxtKwh.Focus(true); // SetValue(IsFocusedProperty, true);
+            //TxtKwh.Focus(FocusState.Keyboard);
+            //TxtKwh.SelectAll();
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -199,6 +203,12 @@ namespace agenzia2.Views
             HyperlinkButton hpl = sender as HyperlinkButton;
             GlobalData.OpenSettingFile(hpl.Name + ".txt");
         }
+
+        private void TxtKwh_GotFocus(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            TxtKwh.SelectAll();
+        }
+
 
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
