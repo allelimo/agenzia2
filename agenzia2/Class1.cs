@@ -21,6 +21,9 @@ namespace agenzia2
         public static string[] arraymtc_esente = new string[8];
         public static string[] arraymoto_impiva = new string[9];
         public static string[] arraymoto_esente = new string[9];
+        public static string[] arrayspeciale = new string[10];
+        public static string[] arrayspeciale_esente = new string[10];
+        public static string[] arrayspeciale_impiva = new string[10];
 
         //? inserito il controllo dell'essitenza del file
         /// vediamo sea ppare qeuata linea

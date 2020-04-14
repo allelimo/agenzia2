@@ -179,6 +179,10 @@ namespace agenzia2.Views
                     TxtTotale.Text = dbTotale.ToString("N2");
                     TxtImpiva.Text = dbImpiva.ToString("N2");
                     TxtEsente.Text = dbEsente.ToString("N2");
+                    //alle visualizza solo ipt e totale pre-arrotondamento
+                    TxtSoloIpt.Text = dbIpt.ToString("N2");
+                    TxtPreRound.Text = dbTemptot.ToString("N2");
+
                 }
             }
         }

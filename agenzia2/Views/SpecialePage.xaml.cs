@@ -4,6 +4,8 @@ using System.Runtime.CompilerServices;
 
 using Windows.UI.Xaml.Controls;
 
+using System.Linq;
+
 namespace agenzia2.Views
 {
     public sealed partial class SpecialePage : Page, INotifyPropertyChanged
@@ -11,6 +13,13 @@ namespace agenzia2.Views
         public SpecialePage()
         {
             InitializeComponent();
+            NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+
+            // alle qui: caricare i dati negli array
+            GlobalData.LoadDatainArray("speciale.txt", GlobalData.arrayspeciale);
+            GlobalData.LoadDatainArray("speciale_esente.txt", GlobalData.arrayspeciale_esente);
+            GlobalData.LoadDatainArray("speciale_impiva.txt", GlobalData.arrayspeciale_impiva);
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,5 +36,193 @@ namespace agenzia2.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+        // alle variabili per radiobutton
+        private string MyRdbScelta = null;
+        // alle variabili per toggleswitch
+        private bool bPRA, bEpoca, bDoppia = false;
+
+        private void RdbGruppo_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            RadioButton rbd = sender as RadioButton;
+            MyRdbScelta = rbd.Name;
+
+            if (MyRdbScelta == "RdbSuccessione")
+            {
+                TswPra.IsOn = true;
+                bPRA = true;
+                TswEpoca.IsOn = false;
+                bEpoca = false;
+                TswDoppia.IsOn = false;
+                bDoppia = false;
+            }
+            else
+            {
+                if (TswPra != null)
+                {
+                    TswPra.IsOn = false;
+                    bPRA = false;
+                }
+                if (TswEpoca != null)
+                {
+                    TswEpoca.IsOn = false;
+                    bEpoca = false;
+                }
+                if (TswDoppia != null)
+                {
+                    TswDoppia.IsOn = false;
+                    bDoppia = false;
+                }
+            }
+        }
+        private void Tsw_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            bPRA = TswPra.IsOn;
+            bEpoca = TswEpoca.IsOn;
+            bDoppia = TswDoppia.IsOn;
+        }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (ScegliCaso() == 1)
+                CalcolaIptProporzionale();
+            else
+                CalcolaIptFissa();
+        }
+
+        //alle calcola ipt proporzionale usando i dati degli array
+        private void CalcolaIptProporzionale()
+        {
+            //carica i valori dell'array auto
+            double dbPra = double.Parse(GlobalData.arrayspeciale[0]);
+            double dbMtc = double.Parse(GlobalData.arrayspeciale[1]);
+            double dbAltre = double.Parse(GlobalData.arrayspeciale[2]);
+            double dbCorrispettivi = double.Parse(GlobalData.arrayspeciale[3]);
+            double db53esente = double.Parse(GlobalData.arrayspeciale[4]);
+            double db53impiva = double.Parse(GlobalData.arrayspeciale[5]);
+            double dbNotaPra = double.Parse(GlobalData.arrayspeciale[6]);
+            //int sconto1 = int.Parse(GlobalData.arrayauto[7]);
+            //int sconto2 = int.Parse(GlobalData.arrayauto[8]);
+            //int sconto3 = int.Parse(GlobalData.arrayauto[9]);
+            int sconto = 0;
+            //alle controlla se c'è input, se no annulla la funzione
+            if (!string.IsNullOrEmpty(TxtKwh.Text))
+            {
+                int numKwh = int.Parse(TxtKwh.Text);
+
+                if (numKwh < 54)
+                {
+                    if (bPRA)
+                        db53esente += dbNotaPra;
+
+                    double db53totale = db53esente + db53impiva;
+                    TxtEsente.Text = db53esente.ToString("N2");
+                    TxtImpiva.Text = db53impiva.ToString("N2");
+                    TxtTotale.Text = db53totale.ToString("n2");
+
+                }
+                else
+                {
+                    //alle arrotonda normale - diviso 4, cioè un quarto ipt per speciali
+                    double dbIpt = Math.Round(numKwh * 4.57 / 4);
+
+                    //? tolto sconto momentaneamente
+                    //if (numKwh < 121)
+                    //    sconto = sconto1;
+                    //else if (numKwh < 231)
+                    //    sconto = sconto2;
+                    //else
+                    //    sconto = sconto3;
+
+                    double dbTemptot = dbIpt + dbMtc + dbPra + dbAltre + dbCorrispettivi - sconto;
+                    //alle arrotonda al 10 piu vicino per speciali
+                    //? andrebbe al 10 piu alto, proviamo prima
+                    double dbTotale = 10 * (int)Math.Round(dbTemptot / 10);
+                    double dbEsente = dbIpt + dbMtc + dbPra;
+
+                    if (bPRA)
+                    {
+                        dbEsente += dbNotaPra;
+                        dbTotale += dbNotaPra;
+                    }
+
+                    double dbImpiva = dbTotale - dbEsente;
+
+                    TxtTotale.Text = dbTotale.ToString("N2");
+                    TxtImpiva.Text = dbImpiva.ToString("N2");
+                    TxtEsente.Text = dbEsente.ToString("N2");
+                    //alle visualizza solo ipt e totale pre-arrotondamento
+                    TxtSoloIpt.Text = dbIpt.ToString("N2");
+                    TxtPreRound.Text = dbTemptot.ToString("N2");
+                }
+            }
+        }
+
+        //alle si assicura ceh nel campo kwh possano essere digitati solo numeri
+        private void TxtKwh_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
+        }
+
+        //alle apre i file di configurazione. usa il trucco di chiamare il bottone come il file da aprire
+        private void HyperlinkButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            HyperlinkButton hpl = sender as HyperlinkButton;
+            GlobalData.OpenSettingFile(hpl.Name + ".txt");
+        }
+
+
+        //alle calcola ipt con valori fissi
+        private void CalcolaIptFissa()
+        {
+            //recupera il valore di nota pra
+            double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
+            //controlla il caso che dobbiamo calcolare
+            int myScelta = ScegliCaso();
+            //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 2
+            string strImpiva = GlobalData.arrayspeciale_impiva[myScelta - 2];
+            string strEsente = GlobalData.arrayspeciale_esente[myScelta - 2];
+            // trasformiamo in numeri
+            double dbImpiva = double.Parse(strImpiva);
+            double dbEsente = double.Parse(strEsente);
+            // conrrolliamo se c'è la nota PRA
+            if (bPRA)
+            {
+                dbEsente += dbNotaPra;
+            }
+            // calcoliamo il totale
+            double dbTotale = dbImpiva + dbEsente;
+            // aggiorniamo la view
+            TxtImpiva.Text = strImpiva;
+            TxtEsente.Text = dbEsente.ToString("N2");
+            TxtTotale.Text = dbTotale.ToString("N2");
+        }
+
+        //alle controlla bottoni e switch per decidere il tipo di tarsferimento richiesto
+        private int ScegliCaso()
+        {
+            if (MyRdbScelta == "RdbTrasferimento" && !bEpoca)
+                return 1; //!normale
+            if (MyRdbScelta == "RdbTrasferimento" && bEpoca)
+                return 2; //!epoca
+            else if (MyRdbScelta == "RdbSuccessione" && !bEpoca && !bDoppia)
+                return 3; //!successione normale
+            else if (MyRdbScelta == "RdbSuccessione" && bEpoca && !bDoppia)
+                return 4; //!successione epoca
+            else if (MyRdbScelta == "RdbSuccessione" && bDoppia)
+                return 5; //!successione doppia
+            else if (MyRdbScelta == "RdbDini" && !bEpoca)
+                return 6; //!dini nromale
+            else if (MyRdbScelta == "RdbDini" && bEpoca)
+                return 7; //!dini epoca
+            else if (MyRdbScelta == "RdbAtto" && !bEpoca)
+                return 8; //!separazione normale
+            else if (MyRdbScelta == "RdbAtto" && bEpoca)
+                return 9;//!separazione epoca
+            else
+                return 0;
+        }
     }
+
 }
