@@ -85,7 +85,7 @@ namespace agenzia2.Views
 
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (ScegliCaso() == 1)
+            if (ScegliCaso() == 0)
                 CalcolaIptProporzionale();
             else
                 CalcolaIptFissa();
@@ -185,9 +185,9 @@ namespace agenzia2.Views
             double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
             //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
-            //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 2
-            string strImpiva = GlobalData.arrayspeciale_impiva[myScelta - 2];
-            string strEsente = GlobalData.arrayspeciale_esente[myScelta - 2];
+            //alle recupera i valori da file - l'indice dell'array è -1 perchè l'array paete da 0 e il primo caso è return 0
+            string strImpiva = GlobalData.arrayspeciale_impiva[myScelta - 1];
+            string strEsente = GlobalData.arrayspeciale_esente[myScelta - 1];
             // trasformiamo in numeri
             double dbImpiva = double.Parse(strImpiva);
             double dbEsente = double.Parse(strEsente);
@@ -208,25 +208,21 @@ namespace agenzia2.Views
         private int ScegliCaso()
         {
             if (MyRdbScelta == "RdbTrasferimento" && !bEpoca)
-                return 1; //!normale
+                return 0; //!normale
             if (MyRdbScelta == "RdbTrasferimento" && bEpoca)
-                return 2; //!epoca
+                return 0; //!epoca
             else if (MyRdbScelta == "RdbSuccessione" && !bEpoca && !bDoppia)
-                return 3; //!successione normale
+                return 1; //!successione normale
             else if (MyRdbScelta == "RdbSuccessione" && bEpoca && !bDoppia)
-                return 4; //!successione epoca
+                return 1; //!successione epoca
             else if (MyRdbScelta == "RdbSuccessione" && bDoppia)
-                return 5; //!successione doppia
-            else if (MyRdbScelta == "RdbDini" && !bEpoca)
-                return 6; //!dini nromale
-            else if (MyRdbScelta == "RdbDini" && bEpoca)
-                return 7; //!dini epoca
-            else if (MyRdbScelta == "RdbAtto" && !bEpoca)
-                return 8; //!separazione normale
-            else if (MyRdbScelta == "RdbAtto" && bEpoca)
-                return 9;//!separazione epoca
+                return 2; //!successione doppia
+            else if (MyRdbScelta == "RdbDini")
+                return 3; //!dini nromale
+            else if (MyRdbScelta == "RdbAtto")
+                return 4;//!separazione epoca
             else
-                return 0;
+                return 5;
         }
     }
 

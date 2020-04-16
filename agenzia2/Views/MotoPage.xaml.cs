@@ -111,9 +111,9 @@ namespace agenzia2.Views
             double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
             //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
-            //alle recupera i valori da file -1 per partire da zero
-            string strImpiva = GlobalData.arraymoto_impiva[myScelta - 1];
-            string strEsente = GlobalData.arraymoto_esente[myScelta - 1];
+            //alle recupera i valori da file partire da zero
+            string strImpiva = GlobalData.arraymoto_impiva[myScelta];
+            string strEsente = GlobalData.arraymoto_esente[myScelta];
             // trasformiamo in numeri
             double dbImpiva = double.Parse(strImpiva);
             double dbEsente = double.Parse(strEsente);
@@ -134,25 +134,21 @@ namespace agenzia2.Views
         private int ScegliCaso()
         {
             if (MyRdbScelta == "RdbTrasferimento" && !bEpoca)
-                return 1; //!normale
+                return 0; //!normale
             if (MyRdbScelta == "RdbTrasferimento" && bEpoca)
-                return 2; //!epoca
+                return 1; //!epoca
             else if (MyRdbScelta == "RdbSuccessione" && !bEpoca && !bDoppia)
-                return 3; //!successione normale
+                return 2; //!successione normale
             else if (MyRdbScelta == "RdbSuccessione" && bEpoca && !bDoppia)
-                return 4; //!successione epoca
+                return 3; //!successione epoca
             else if (MyRdbScelta == "RdbSuccessione" && bDoppia)
-                return 5; //!successione doppia
-            else if (MyRdbScelta == "RdbDini" && !bEpoca)
-                return 6; //!dini nromale
-            else if (MyRdbScelta == "RdbDini" && bEpoca)
-                return 7; //!dini epoca
-            else if (MyRdbScelta == "RdbAtto" && !bEpoca)
-                return 8; //!separazione normale
-            else if (MyRdbScelta == "RdbAtto" && bEpoca)
-                return 9;//!separazione epoca
+                return 4; //!successione doppia
+            else if (MyRdbScelta == "RdbDini")
+                return 5; //!dini nromale
+            else if (MyRdbScelta == "RdbAtto")
+                return 6;//!separazione epoca
             else
-                return 0;
+                return 7;
         }
 
     }
