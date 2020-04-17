@@ -13,17 +13,19 @@ namespace agenzia2
     {
         // alle inserire qui gli array comuni per le diverse view
         public static string[] arrayauto = new string[10];
-        public static string[] arrayauto_esente = new string[6];
-        public static string[] arrayauto_impiva = new string[6];
+        public static string[] arrayauto_esente = new string[7];
+        public static string[] arrayauto_impiva = new string[7];
         public static string[] arraypra_impiva = new string[11];
         public static string[] arraypra_esente = new string[11];
         public static string[] arraymtc_impiva = new string[10];
         public static string[] arraymtc_esente = new string[10];
-        public static string[] arraymoto_impiva = new string[7];
-        public static string[] arraymoto_esente = new string[7];
+        public static string[] arraymoto_impiva = new string[8];
+        public static string[] arraymoto_esente = new string[8];
         public static string[] arrayspeciale = new string[7];
         public static string[] arrayspeciale_esente = new string[4];
         public static string[] arrayspeciale_impiva = new string[4];
+        public static string[] arraypatente_esente = new string[11];
+        public static string[] arraypatente_impiva = new string[11];
 
         //? inserito il controllo dell'essitenza del file
         /// vediamo sea ppare qeuata linea

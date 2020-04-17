@@ -5,36 +5,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="Page_Loaded">
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <Grid
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" TabIndex="1" IsReadOnly="True" IsTabStop="False"/>
-            <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" TabIndex="2" IsReadOnly="True" IsTabStop="False"/>
-            <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
-            <RadioButton x:Name="RdbCCagg" Content="Solo visita" Margin="300,24,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RdbGruppo_Checked" TabIndex="5"/>
-            <RadioButton x:Name="RdbCCdupl" Content="Visita" Margin="300,61,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="6"/>
-            <RadioButton x:Name="RdbVendita" Content="Smarrimento" Margin="300,153,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="7"/>
-            <RadioButton x:Name="RdbArt94" Content="Deterioramento" Margin="300,190,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
-            <RadioButton x:Name="RdbTargarip" Content="Riclassificazione" Margin="300,252,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
-            <ToggleSwitch x:Name="TswDeterioramento" Header="" OnContent="Nuovo CM" OffContent="Variazione dati" Margin="331,87
-                          ,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
-            <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11"/>
-            <HyperlinkButton x:Name="patente_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
-            <HyperlinkButton x:Name="patente_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
+        <Grid>
+         <!--   Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"> -->
+            <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" IsReadOnly="True" IsTabStop="False"/>
+            <RadioButton x:Name="RdbVisita" Content="Solo visita per rilascio" Margin="300,24,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbRinnovo" Content="Visita per rinnovo" Margin="300,61,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbSmarrimento" Content="Smarrimento" Margin="300,153,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbDeterioramento" Content="Deterioramento" Margin="300,190,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbRiclassificazione" Content="Riclassificazione" Margin="300,252,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbInternazionale" Content="Internazionale" Margin="300,289,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbEstera" Content="Conversione estera" Margin="300,326,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbPermessoCM" Content="Permesso CM" Margin="300,363,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbVisitaFatta" Content="Visita già fatta" Margin="300,400,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <ToggleSwitch x:Name="TswDati" Header="" OnContent="Variazione dati" OffContent="Variazione dati" Margin="331,87,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled"/>
+            <ToggleSwitch x:Name="TswSmarrita" Header="" OnContent="Smarrimento/furto" OffContent="Smarrimento/furto" Margin="331,116,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <ToggleSwitch x:Name="TswDati2" Header="" OnContent="Variazione dati" OffContent="Variazione dati" Margin="331,216,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <ToggleSwitch x:Name="TswVecchio" Header="" OnContent="CM vecchio" OffContent="CM nuovo" Margin="331,426,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <Button Content="Calcola" Width="150" Click="Button_Click" />
+            <HyperlinkButton x:Name="patente_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
+            <HyperlinkButton x:Name="patente_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="500,318,0,0" Text="Cambio indirizzo, Vendita solo MTC" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="30" Width="172"/>
             <TextBlock HorizontalAlignment="Left" Margin="500,336,0,0" Text="Smarrimento, furto, deterioramento" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="27" Width="135"/>
             <TextBlock HorizontalAlignment="Left" Margin="500,363,0,0" Text="Comodato d'uso, Successione, Cambio Ragione Sociale " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="29" Width="169"/>
-            <RadioButton x:Name="RdbTargarip_Copy" Content="Conversione estera" Margin="300,289,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
-            <ToggleSwitch x:Name="TswDeterioramento_Copy" Header="" OnContent="CM nuovo" OffContent="CM vecchio" Margin="331,432,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
-            <ToggleSwitch x:Name="TswDeterioramento_Copy1" Header="" OnContent="Visita fatta" OffContent="Smarrita" Margin="331,116,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4" AllowDrop="True"/>
-            <ToggleSwitch x:Name="TswDeterioramento_Copy2" Header="" OnContent="Smarrimento" OffContent="Smarrimento" Margin="525,138,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
-            <ToggleSwitch x:Name="TswDeterioramento_Copy3" Header="" OnContent="Variazione dati" OffContent="Variazione dati" Margin="331,216
-                          ,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4" AllowDrop="True"/>
-            <CheckBox Content="Smarrimento" Margin="525,195,0,0" VerticalAlignment="Top"/>
-            <RadioButton x:Name="RdbTargarip_Copy1" Content="Internazionale" Margin="300,326,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
-            <RadioButton x:Name="RdbTargarip_Copy2" Content="Permesso CM" Margin="300,363,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
-            <RadioButton x:Name="RdbTargarip_Copy3" Content="Vivita già fatta" Margin="303,400,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
 
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 

@@ -31,6 +31,7 @@ namespace agenzia2.Views
             //TxtKwh.Focus(FocusState.Keyboard);
             //TxtKwh.SelectAll();
 
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -209,6 +210,19 @@ namespace agenzia2.Views
             TxtKwh.SelectAll();
         }
 
+        //if nothing is selected, select the first radiobutton
+        private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+            if (RdbTrasferimento.IsChecked == false &&
+                RdbSuccessione.IsChecked == false &&
+                RdbDini.IsChecked == false &&
+                RdbAtto.IsChecked == false)
+
+                RdbTrasferimento.IsChecked = true;
+
+        }
+
 
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
@@ -247,12 +261,14 @@ namespace agenzia2.Views
                 return 3; //!successione normale
             else if (MyRdbScelta == "RdbSuccessione" && bEpoca && !bDoppia)
                 return 4; //!successione epoca
-            else if (MyRdbScelta == "RdbSuccessione" && bDoppia)
+            else if (MyRdbScelta == "RdbSuccessione" && bDoppia && !bEpoca)
                 return 5; //!successione doppia
+            else if (MyRdbScelta == "RdbSuccessione" && bDoppia && bEpoca)
+                return 6; //!successione doppia d'epoca
             else if (MyRdbScelta == "RdbDini")
-                return 6; //!dini nromale
+                return 7; //!dini nromale
             else if (MyRdbScelta == "RdbAtto")
-                return 7;//!separazione epoca
+                return 8;//!separazione epoca
             else
                 return 0;
         }

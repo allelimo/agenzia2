@@ -120,6 +120,20 @@ namespace agenzia2.Views
             TxtTotale.Text = dbTotale.ToString("N2");
         }
 
+        private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (RdbCCagg.IsChecked == false &&
+                RdbCCdupl.IsChecked == false &&
+                RdbArt94.IsChecked == false &&
+                RdbVendita.IsChecked == false &&
+                RdbTargarip.IsChecked == false &&
+                RdbRevisione.IsChecked == false &&
+                RdbTargaProva.IsChecked == false)
+
+                RdbCCagg.IsChecked = true;
+
+        }
+
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             //ScegliCaso();

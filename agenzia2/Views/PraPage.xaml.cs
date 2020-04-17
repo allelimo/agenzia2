@@ -127,6 +127,20 @@ namespace agenzia2.Views
                 return 11;
         }
 
+        private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (RdbCDP.IsChecked == false &&
+                RdbPposs.IsChecked == false &&
+                RdbEsp.IsChecked == false &&
+                RdbRinnAuto.IsChecked == false &&
+                RdbRinnMoto.IsChecked == false &&
+                RdbRettifica.IsChecked == false &&
+                RdbVisura.IsChecked == false &&
+                RdbCrono.IsChecked == false)
+
+                RdbCDP.IsChecked = true;
+        }
+
 
 
         //alle calcola ipt con valori fissi

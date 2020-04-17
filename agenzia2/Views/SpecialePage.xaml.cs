@@ -177,6 +177,17 @@ namespace agenzia2.Views
             TxtKwh.SelectAll();
         }
 
+        private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (RdbTrasferimento.IsChecked == false &&
+                RdbSuccessione.IsChecked == false &&
+                RdbDini.IsChecked == false &&
+                RdbAtto.IsChecked == false)
+
+                RdbTrasferimento.IsChecked = true;
+
+        }
+
 
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
