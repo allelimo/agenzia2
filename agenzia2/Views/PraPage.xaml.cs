@@ -127,6 +127,8 @@ namespace agenzia2.Views
                 return 11;
         }
 
+
+
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
         {

@@ -249,14 +249,10 @@ namespace agenzia2.Views
                 return 4; //!successione epoca
             else if (MyRdbScelta == "RdbSuccessione" && bDoppia)
                 return 5; //!successione doppia
-            else if (MyRdbScelta == "RdbDini" && !bEpoca)
+            else if (MyRdbScelta == "RdbDini")
                 return 6; //!dini nromale
-            else if (MyRdbScelta == "RdbDini" && bEpoca)
-                return 7; //!dini epoca
-            else if (MyRdbScelta == "RdbAtto" && !bEpoca)
-                return 8; //!separazione normale
-            else if (MyRdbScelta == "RdbAtto" && bEpoca)
-                return 9;//!separazione epoca
+            else if (MyRdbScelta == "RdbAtto")
+                return 7;//!separazione epoca
             else
                 return 0;
         }

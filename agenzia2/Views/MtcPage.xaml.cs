@@ -38,7 +38,7 @@ namespace agenzia2.Views
         // alle variabili per radiobutton
         private string MyRdbScelta = null;
         // alle variabili per toggleswitch
-        private bool bDeterioramento, bAzienda = false;
+        private bool bDeterioramento, bAzienda, bRinnovo= false;
 
         private void RdbGruppo_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -53,6 +53,7 @@ namespace agenzia2.Views
                 {
                     TswDeterioramento.IsOn = false;
                     TswAzienda.IsOn = false;
+                    TswRinnovo.IsOn = false;
                 }
 
             }
@@ -89,9 +90,14 @@ namespace agenzia2.Views
                 return 5; //!art.94 per azienda
             else if (MyRdbScelta == "RdbTargarip")
                 return 6; //!targa ripetitrice
-
+            else if (MyRdbScelta == "RdbRevisione")
+                return 7; //! inserimento per revisione
+            else if (MyRdbScelta == "RdbTargaProva" && !bRinnovo)
+                return 8; //!targa prova nuova
+            else if (MyRdbScelta == "RdbTargaProva" && bRinnovo)
+                return 9; //!targa prova rinnovo
             else
-                return 7;
+                return 10;
         }
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
@@ -100,7 +106,7 @@ namespace agenzia2.Views
             //double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
             //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
-            //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 2
+            //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 0
             string strImpiva = GlobalData.arraymtc_impiva[myScelta];
             string strEsente = GlobalData.arraymtc_esente[myScelta];
             // trasformiamo in numeri
