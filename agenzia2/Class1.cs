@@ -26,6 +26,8 @@ namespace agenzia2
         public static string[] arrayspeciale_impiva = new string[4];
         public static string[] arraypatente_esente = new string[11];
         public static string[] arraypatente_impiva = new string[11];
+        public static string[] arraycamion_esente = new string[9];
+        public static string[] arraycamion_impiva = new string[9];
 
         //? inserito il controllo dell'essitenza del file
         /// vediamo sea ppare qeuata linea
