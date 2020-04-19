@@ -12,7 +12,7 @@ namespace agenzia2
     public static class GlobalData
     {
         // alle inserire qui gli array comuni per le diverse view
-        public static string[] arrayauto = new string[10];
+        public static string[] arrayauto = new string[11];
         public static string[] arrayauto_esente = new string[7];
         public static string[] arrayauto_impiva = new string[7];
         public static string[] arraypra_impiva = new string[11];

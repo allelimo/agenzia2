@@ -53,7 +53,7 @@ namespace agenzia2.Views
         // alle variabili per radiobutton
         private string MyRdbScelta = null;
         // alle variabili per toggleswitch
-        private bool bPRA, bEpoca, bDoppia = false;
+        private bool bPRA, bEpoca, bDoppia, bRaccomandata = false;
         //alle variabili per ipt con default
         //private double dbPra = 76.60;
         //private double dbMtc = 29.76;
@@ -84,6 +84,8 @@ namespace agenzia2.Views
                 bEpoca = false;
                 TswDoppia.IsOn = false;
                 bDoppia = false;
+                TswRaccomandata.IsOn = false;
+                bRaccomandata = false;
             }
             else
             {
@@ -102,6 +104,12 @@ namespace agenzia2.Views
                     TswDoppia.IsOn = false;
                     bDoppia = false;
                 }
+                if (TswRaccomandata != null)
+                {
+                    TswRaccomandata.IsOn = false;
+                    bRaccomandata = false;
+                }
+
             }
         }
         private void Tsw_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -109,6 +117,7 @@ namespace agenzia2.Views
             bPRA = TswPra.IsOn;
             bEpoca = TswEpoca.IsOn;
             bDoppia = TswDoppia.IsOn;
+            bRaccomandata = TswRaccomandata.IsOn;
             //! per usare messagedialog serve windows.ui.popups
             //! aggiungere async
             //alle dialogo da cancellare una volta controllato il funzionamento
@@ -138,6 +147,7 @@ namespace agenzia2.Views
             int sconto1 = int.Parse(GlobalData.arrayauto[7]);
             int sconto2 = int.Parse(GlobalData.arrayauto[8]);
             int sconto3 = int.Parse(GlobalData.arrayauto[9]);
+            double dbRaccomandata = double.Parse(GlobalData.arrayauto[10]);
             int sconto = 0;
             //alle controlla se c'è input, se no annulla la funzione
             if (!string.IsNullOrEmpty(TxtKwh.Text))
@@ -149,6 +159,8 @@ namespace agenzia2.Views
                 {
                     if (bPRA)
                         db53esente += dbNotaPra;
+                    if (bRaccomandata)
+                        db53esente += dbRaccomandata;
 
                     double db53totale = db53esente + db53impiva;
                     TxtEsente.Text = db53esente.ToString("N2");
@@ -177,6 +189,11 @@ namespace agenzia2.Views
                     {
                         dbEsente += dbNotaPra;
                         dbTotale += dbNotaPra;             
+                    }
+                    if (bRaccomandata)
+                    {
+                        dbEsente += dbRaccomandata;
+                        dbTotale += dbRaccomandata;
                     }
 
                     double dbImpiva = dbTotale - dbEsente;
@@ -229,6 +246,7 @@ namespace agenzia2.Views
         {
             //recupera il valore di nota pra
             double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
+            double dbRaccomandata = double.Parse(GlobalData.arrayauto[10]);
             //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
             //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 2
@@ -242,6 +260,11 @@ namespace agenzia2.Views
             {
                 dbEsente += dbNotaPra;
             }
+            if (bRaccomandata)
+            {
+                dbEsente += dbRaccomandata;
+            }
+
             // calcoliamo il totale
             double dbTotale = dbImpiva + dbEsente;
             // aggiorniamo la view
