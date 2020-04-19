@@ -24,7 +24,8 @@
             <ToggleSwitch x:Name="TswTargaNuova" Header="" OnContent ="Senza rilascio targa" OffContent ="Con rilascio targa" Margin="330,50,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
             <ToggleSwitch x:Name="TswContestuale" Header="" OnContent ="Volontaria" OffContent ="Vendita contestuale" Margin="330,111,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
 
-            <Button Content="Calcola" Width="150" Click="Button_Click" />
+            <ToggleSwitch x:Name="TswRaccomandata" Header="Raccomandata" Margin="0,328,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top"/>
             <HyperlinkButton x:Name="ciclo_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="ciclo_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
 

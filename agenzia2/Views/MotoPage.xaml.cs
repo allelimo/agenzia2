@@ -43,7 +43,7 @@ namespace agenzia2.Views
         // alle variabili per radiobutton
         private string MyRdbScelta = null;
         // alle variabili per toggleswitch
-        private bool bPRA, bEpoca, bDoppia = false;
+        private bool bPRA, bEpoca, bDoppia, bRaccomandata = false;
         //alle variabili per ipt con default
 
         private void RdbGruppo_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -58,6 +58,8 @@ namespace agenzia2.Views
                 bEpoca = false;
                 TswDoppia.IsOn = false;
                 bDoppia = false;
+                TswRaccomandata.IsOn = false;
+                bRaccomandata = false;
             }
             else
             {
@@ -76,6 +78,12 @@ namespace agenzia2.Views
                     TswDoppia.IsOn = false;
                     bDoppia = false;
                 }
+                if (TswRaccomandata != null)
+                {
+                    TswRaccomandata.IsOn = false;
+                    bRaccomandata = false;
+                }
+
             }
         }
             private void Tsw_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -83,6 +91,7 @@ namespace agenzia2.Views
             bPRA = TswPra.IsOn;
             bEpoca = TswEpoca.IsOn;
             bDoppia = TswDoppia.IsOn;
+            bRaccomandata = TswRaccomandata.IsOn;
         }
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -120,6 +129,7 @@ namespace agenzia2.Views
         {
             //recupera il valore di nota pra
             double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
+            double dbRaccomandata = double.Parse(GlobalData.arrayauto[10]);
             //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
             //alle recupera i valori da file partire da zero
@@ -133,6 +143,11 @@ namespace agenzia2.Views
             {
                 dbEsente += dbNotaPra;
             }
+            if (bRaccomandata)
+            {
+                dbEsente += dbRaccomandata;
+            }
+
             // calcoliamo il totale
             double dbTotale = dbImpiva + dbEsente;
             // aggiorniamo la view

@@ -38,7 +38,7 @@ namespace agenzia2.Views
         // alle variabili per radiobutton
         private string MyRdbScelta = null;
         // alle variabili per toggleswitch
-        private bool bTarga, bContestuale = false;
+        private bool bTarga, bContestuale, bRaccomandata = false;
 
         private void RdbGruppo_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -53,6 +53,8 @@ namespace agenzia2.Views
                 {
                     TswTargaNuova.IsOn = false;
                     TswContestuale.IsOn = false;
+                    TswRaccomandata.IsOn = false;
+                    TswRaccomandata.IsOn = false;
                 }
 
             }
@@ -64,6 +66,7 @@ namespace agenzia2.Views
         {
             bTarga = TswTargaNuova.IsOn;
             bContestuale = TswContestuale.IsOn;
+            bRaccomandata = TswRaccomandata.IsOn;
             //! per usare messagedialog serve windows.ui.popups
             //! aggiungere async
             //alle dialogo da cancellare una volta controllato il funzionamento
@@ -100,6 +103,7 @@ namespace agenzia2.Views
         {
             //recupera il valore di nota pra
             //double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
+            double dbRaccomandata = double.Parse(GlobalData.arrayauto[10]);
             //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
             //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 0
@@ -108,6 +112,12 @@ namespace agenzia2.Views
             // trasformiamo in numeri
             double dbImpiva = double.Parse(strImpiva);
             double dbEsente = double.Parse(strEsente);
+
+            if (bRaccomandata)
+            {
+                dbEsente += dbRaccomandata;
+            }
+
             // calcoliamo il totale
             double dbTotale = dbImpiva + dbEsente;
             // aggiorniamo la view
