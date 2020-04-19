@@ -20,7 +20,8 @@
             <RadioButton x:Name="RdbAtto" Content="Separazione/divorzio" Margin="300,122,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" TabIndex="8"/>
             <ToggleSwitch x:Name="TswEpoca" Header="Veicolo d'epoca" Margin="300,164,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="9"/>
             <ToggleSwitch x:Name="TswDoppia" Header="Successione doppia" Margin="300,221,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="10"/>
-            <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11"/>
+            <ToggleSwitch x:Name="TswRaccomandata" Header="Raccomandata" Margin="0,328,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
+            <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top"/>
             <HyperlinkButton x:Name="speciale" Content="Apri il file di configurazione per IPT proporzionale" Margin="0,479,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="speciale_esente" Content="Apri il file di configurazione per art. 15" Margin="0,511,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="speciale_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,543,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
