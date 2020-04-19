@@ -11,6 +11,13 @@ namespace agenzia2.Views
         public CicloPage()
         {
             InitializeComponent();
+            NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+
+            // alle qui: caricare i dati negli array
+            GlobalData.LoadDatainArray("ciclo_impiva.txt", GlobalData.arrayciclo_impiva);
+            GlobalData.LoadDatainArray("ciclo_esente.txt", GlobalData.arrayciclo_esente);
+
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,5 +34,116 @@ namespace agenzia2.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        // alle variabili per radiobutton
+        private string MyRdbScelta = null;
+        // alle variabili per toggleswitch
+        private bool bTarga, bContestuale = false;
+
+        private void RdbGruppo_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            RadioButton rbd = sender as RadioButton;
+            MyRdbScelta = rbd.Name;
+
+            try
+            {
+                if (TswTargaNuova == null)
+                    return;
+                else
+                {
+                    TswTargaNuova.IsOn = false;
+                    TswContestuale.IsOn = false;
+                }
+
+            }
+            catch
+            {
+            }
+        }
+        private void Tsw_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            bTarga = TswTargaNuova.IsOn;
+            bContestuale = TswContestuale.IsOn;
+            //! per usare messagedialog serve windows.ui.popups
+            //! aggiungere async
+            //alle dialogo da cancellare una volta controllato il funzionamento
+            //var mydlg = new MessageDialog("pra " + bPRA + " deterioramento " + bDeterioramento + " crono " + bCrono + " extraue" + bExtraUE);
+            //await mydlg.ShowAsync();
+        }
+
+        //alle controlla bottoni e switch per decidere il tipo di tarsferimento richiesto
+        private int ScegliCaso()
+        {
+            if (MyRdbScelta == "RdbTrasferimento" && !bTarga)
+                return 0; //!vendita con targa NUOVA
+            if (MyRdbScelta == "RdbTrasferimento" && bTarga)
+                return 1; //!vendita con targa vecchia
+            else if (MyRdbScelta == "RdbSospensione" && !bContestuale)
+                return 2; //!sospensione per vendita
+            else if (MyRdbScelta == "RdbSospensione" && bContestuale)
+                return 3; //!sospensione volontaria
+            else if (MyRdbScelta == "RdbSuccessione")
+                return 4; //!successione
+            else if (MyRdbScelta == "Rdb1")
+                return 5; //!art.94 per azienda
+            else if (MyRdbScelta == "Rdb2")
+                return 6; //!targa ripetitrice
+            else if (MyRdbScelta == "Rdb3")
+                return 7; //! inserimento per revisione
+            else if (MyRdbScelta == "Rdb4")
+                return 8; //!targa prova nuova
+            else
+                return 9;
+        }
+        //alle calcola ipt con valori fissi
+        private void CalcolaIptFissa()
+        {
+            //recupera il valore di nota pra
+            //double dbNotaPra = double.Parse(GlobalData.arrayauto[6]);
+            //controlla il caso che dobbiamo calcolare
+            int myScelta = ScegliCaso();
+            //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 0
+            string strImpiva = GlobalData.arrayciclo_impiva[myScelta];
+            string strEsente = GlobalData.arrayciclo_esente[myScelta];
+            // trasformiamo in numeri
+            double dbImpiva = double.Parse(strImpiva);
+            double dbEsente = double.Parse(strEsente);
+            // calcoliamo il totale
+            double dbTotale = dbImpiva + dbEsente;
+            // aggiorniamo la view
+            TxtImpiva.Text = strImpiva;
+            TxtEsente.Text = dbEsente.ToString("N2");
+            TxtTotale.Text = dbTotale.ToString("N2");
+        }
+
+        private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (RdbTrasferimento.IsChecked == false &&
+                RdbSospensione.IsChecked == false &&
+                RdbSuccessione.IsChecked == false &&
+                Rdb1.IsChecked == false &&
+                Rdb2.IsChecked == false &&
+                Rdb3.IsChecked == false &&
+                Rdb4.IsChecked == false)
+
+                RdbTrasferimento.IsChecked = true;
+
+        }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            //ScegliCaso();
+            //var mydlg = new MessageDialog(ScegliCaso().ToString());
+            //await mydlg.ShowAsync();
+            CalcolaIptFissa();
+
+        }
+
+        private void HyperlinkButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            HyperlinkButton hpl = sender as HyperlinkButton;
+            GlobalData.OpenSettingFile(hpl.Name + ".txt");
+        }
+
     }
 }

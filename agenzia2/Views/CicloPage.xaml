@@ -9,6 +9,25 @@
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+
+            <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" IsReadOnly="True" IsTabStop="False"/>
+            <RadioButton x:Name="RdbTrasferimento" Content="Trasferimento di proprietà" Margin="300,24,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbSospensione" Content="Sospensione" Margin="300,85,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbSuccessione" Content="Successione" Margin="300,147,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="Rdb1" Content="da assegnare" Margin="300,184,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" IsEnabled="False" />
+            <RadioButton x:Name="Rdb2" Content="da assegnare" Margin="300,221,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" IsEnabled="False" />
+            <RadioButton x:Name="Rdb3" Content="da assegnare" Margin="300,258,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" IsEnabled="False" />
+            <RadioButton x:Name="Rdb4" Content="da assegnare" Margin="300,295,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" IsEnabled="False" />
+
+            <ToggleSwitch x:Name="TswTargaNuova" Header="" OnContent ="Senza rilascio targa" OffContent ="Con rilascio targa" Margin="330,50,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <ToggleSwitch x:Name="TswContestuale" Header="" OnContent ="Volontaria" OffContent ="Vendita contestuale" Margin="330,111,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+
+            <Button Content="Calcola" Width="150" Click="Button_Click" />
+            <HyperlinkButton x:Name="ciclo_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
+            <HyperlinkButton x:Name="ciclo_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
+
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.
