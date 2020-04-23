@@ -83,6 +83,12 @@ namespace agenzia2.Views
                 }
 
             }
+            if (MyRdbScelta != "RdbTrasferimento")
+            {
+                TxtSoloIpt.Text = "n/a";
+                TxtPreRound.Text = "n/a";
+            }
+
         }
         private void Tsw_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

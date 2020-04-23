@@ -25,6 +25,7 @@
             <HyperlinkButton x:Name="auto" Content="Apri il file di configurazione per IPT proporzionale" Margin="0,479,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="auto_esente" Content="Apri il file di configurazione per art. 15" Margin="0,511,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="auto_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,543,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
+            <!-- the following controls are hidden -->
             <TextBox x:Name="TxtSoloIpt" HorizontalAlignment="Left" TextAlignment="Right" Margin="170,23,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="{Binding IsChecked, ElementName=ChkHideShow}" PlaceholderText="Solo IPT"/>
             <TextBox x:Name="TxtPreRound" HorizontalAlignment="Left" TextAlignment="Right" Margin="170,142,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="{Binding IsChecked, ElementName=ChkHideShow}" PlaceholderText="Lordo" />
             <CheckBox x:Name="ChkHideShow" Content="CheckBox" Margin="0,640,0,0" Canvas.ZIndex="-1" Opacity="0" VerticalAlignment="Top">
