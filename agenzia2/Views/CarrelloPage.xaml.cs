@@ -2,7 +2,10 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+
 
 namespace agenzia2.Views
 {
@@ -51,6 +54,8 @@ namespace agenzia2.Views
             GlobalData.dCarrelloTotale = 0;
 
             VisualizzaCarrello();
+
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
 
         }
     }

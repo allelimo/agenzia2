@@ -21,10 +21,15 @@
             </Button>
          -->
 
-            
 
-            <Button x:Name="BtnSvuota" Content="Svuota Carrello" Width="150" Click="BtnSvuota_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top"/>
 
+            <Button x:Name="BtnSvuota" Content="Svuota Carrello" Width="150" Click="BtnSvuota_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top">
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout>
+                        <TextBlock Text="Il carrello è stato svuotato."  />
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+            </Button>
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.
