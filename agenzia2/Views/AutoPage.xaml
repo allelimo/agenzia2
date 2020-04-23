@@ -33,6 +33,7 @@
                     <KeyboardAccelerator Key="W" Modifiers="Control"/>
                 </CheckBox.KeyboardAccelerators>
             </CheckBox>
+            <Button x:Name="BtnCarrello" Content="Carrello" Width="150" Click="BtnCarrello_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top"/>
 
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 

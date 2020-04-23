@@ -155,6 +155,9 @@
     <Compile Include="Views\CamionPage.xaml.cs">
       <DependentUpon>CamionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CarrelloPage.xaml.cs">
+      <DependentUpon>CarrelloPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CicloPage.xaml.cs">
       <DependentUpon>CicloPage.xaml</DependentUpon>
     </Compile>
@@ -212,6 +215,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CamionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CarrelloPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -232,6 +232,7 @@ namespace agenzia2.Views
             TxtKwh.SelectAll();
         }
 
+
         //if nothing is selected, select the first radiobutton
         private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -300,5 +301,13 @@ namespace agenzia2.Views
             else
                 return 0;
         }
+
+        private void BtnCarrello_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            GlobalData.dCarrelloEsente += double.Parse(TxtEsente.Text);
+            GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
+            GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
+        }
+
     }
 }

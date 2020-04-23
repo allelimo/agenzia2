@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="agenzia2.Views.CarrelloPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
+        <Grid
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+
+            <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" IsReadOnly="True" IsTabStop="False"/>
+            <Button x:Name="BtnAggiorna" Width="150" Content="Aggiorna Carrello" Click="BtnAggiorna_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top" />
+            <!--        <TextBlock>
+                    <Run Text="&#xE895;" FontFamily="Segoe MDL2 Assets" />
+                <Run Text="Aggiorna Carrello" />
+                </TextBlock>
+            </Button>
+         -->
+
+            
+
+            <Button x:Name="BtnSvuota" Content="Svuota Carrello" Width="150" Click="BtnSvuota_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top"/>
+
+            <!--
+                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                Place your content here.
+            -->
+        </Grid>
+    </Grid>
+</Page>

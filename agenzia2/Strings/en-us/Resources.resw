@@ -205,4 +205,8 @@
     <value>parameter must be an Enum name!</value>
     <comment>Parameter must be an Enum name in enum to boolean converter</comment>
   </data>
+  <data name="Shell_Carrello.Content" xml:space="preserve">
+    <value>Carrello</value>
+    <comment>Navigation view item name for Carrello</comment>
+  </data>
 </root>
