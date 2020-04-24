@@ -6,6 +6,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 
+//toast
+using Windows.UI.Notifications;
+using Windows.Data.Xml.Dom;
 
 namespace agenzia2.Views
 {
@@ -60,11 +63,44 @@ namespace agenzia2.Views
 
             FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
 
+            displayToastNotification("Il carrello è stato correttamente svuotato", "E' possibile calcolare un nuovo preventivo");
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             VisualizzaCarrello();
         }
+
+        //ALLE  TOAST
+        private void displayToastNotification(String caption, String message)
+        {
+            var toastTemplate = "<toast launch=\"app-defined-string\">" +
+                                "<visual>" +
+                                  "<binding template =\"ToastGeneric\">" +
+                                    "<text>" + caption + "</text>" +
+                                    "<text>" + message + "</text>" +
+                                  "</binding>" +
+                                "</visual>" +
+                                "</toast>";
+
+            var xmlDocument = new XmlDocument();
+
+            xmlDocument.LoadXml(toastTemplate);
+
+            var toastNotification = new ToastNotification(xmlDocument);
+
+            var notification = ToastNotificationManager.CreateToastNotifier();
+
+            notification.Show(toastNotification);
+        }
+
+        //Remove toast history
+        private void removeToastHistory()
+        {
+            var toastHistory = ToastNotificationManager.History;
+            toastHistory.Clear();
+        }
+
     }
 }

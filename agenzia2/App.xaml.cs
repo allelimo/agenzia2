@@ -5,6 +5,12 @@ using agenzia2.Services;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 
+using Windows.ApplicationModel;
+
+//toast
+using Windows.UI.Notifications;
+//using Windows.Data.Xml.Dom;
+
 namespace agenzia2
 {
     public sealed partial class App : Application
@@ -19,6 +25,8 @@ namespace agenzia2
         public App()
         {
             InitializeComponent();
+            this.Suspending += OnSuspending;
+
 
             // Deferred execution until used. Check https://msdn.microsoft.com/library/dd642331(v=vs.110).aspx for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
@@ -46,5 +54,26 @@ namespace agenzia2
         {
             return new Views.ShellPage();
         }
+
+
+
+        /// <summary>
+        /// Invoked when application execution is being suspended.  Application state is saved
+        /// without knowing whether the application will be terminated or resumed with the contents
+        /// of memory still intact.
+        /// </summary>
+        /// <param name="sender">The source of the suspend request.</param>
+        /// <param name="e">Details about the suspend request.</param>
+        private  void OnSuspending(object sender, SuspendingEventArgs e)
+        {
+            var deferral = e.SuspendingOperation.GetDeferral();
+            //await SuspensionManager.SaveAsync();
+
+            var toastHistory = ToastNotificationManager.History;
+            toastHistory.Clear();
+
+            deferral.Complete();
+        }
+
     }
 }
