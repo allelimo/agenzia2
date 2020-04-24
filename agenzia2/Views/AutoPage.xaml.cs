@@ -7,6 +7,12 @@ using Windows.UI.Popups;
 
 using System.Linq;
 
+//carrello flyout
+using Windows.UI.Xaml;
+//using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+
+
 namespace agenzia2.Views
 {
     public sealed partial class AutoPage : Page, INotifyPropertyChanged
@@ -307,6 +313,9 @@ namespace agenzia2.Views
             GlobalData.dCarrelloEsente += double.Parse(TxtEsente.Text);
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
+
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+
         }
 
     }

@@ -16,7 +16,7 @@ namespace agenzia2.Views
             InitializeComponent();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
 
-            VisualizzaCarrello();
+            //VisualizzaCarrello();
 
         }
 
@@ -45,6 +45,9 @@ namespace agenzia2.Views
         private void BtnAggiorna_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             VisualizzaCarrello();
+
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+
         }
 
         private void BtnSvuota_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -57,6 +60,11 @@ namespace agenzia2.Views
 
             FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            VisualizzaCarrello();
         }
     }
 }
