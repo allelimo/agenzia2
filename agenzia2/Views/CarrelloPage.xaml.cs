@@ -49,8 +49,8 @@ namespace agenzia2.Views
         {
             VisualizzaCarrello();
 
-            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
-            GlobalData.displayToastNotification("Il carrello è stato aggiornato", "E' possibile aggiungere elementi al carrello");
+            //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+            GlobalData.DisplayToastNotification("Il carrello è stato aggiornato", "E' possibile aggiungere elementi al carrello");
 
         }
 
@@ -62,9 +62,9 @@ namespace agenzia2.Views
 
             VisualizzaCarrello();
 
-            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+            //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
 
-            GlobalData.displayToastNotification("Il carrello è stato svuotato", "E' possibile calcolare un nuovo preventivo");
+            GlobalData.DisplayToastNotification("Il carrello è stato svuotato", "E' possibile calcolare un nuovo preventivo");
 
         }
 

@@ -26,6 +26,7 @@
             <ToggleSwitch x:Name="TswExtraUE" Header="" OnContent ="Extra Unione Europea" OffContent ="Unione Europea" Margin="330,163,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
             <ToggleSwitch x:Name="TswRaccomandata" Header="Raccomandata" Margin="0,328,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
             <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="BtnCarrello" Content="Carrello" Width="150" Click="BtnCarrello_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top" />
             <HyperlinkButton x:Name="pra_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="pra_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <!--

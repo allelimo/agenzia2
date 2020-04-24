@@ -160,5 +160,13 @@ namespace agenzia2.Views
             TxtTotale.Text = dbTotale.ToString("N2");
         }
 
+        private void BtnCarrello_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            GlobalData.dCarrelloEsente += double.Parse(TxtEsente.Text);
+            GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
+            GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
+            GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+        }
+
     }
 }

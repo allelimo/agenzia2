@@ -106,7 +106,7 @@ namespace agenzia2
         }
 
 
-        public static void displayToastNotification(String caption, String message)
+        public static void DisplayToastNotification(String caption, String message)
         {
             var toastTemplate = "<toast launch=\"app-defined-string\">" +
                                 "<visual>" +

@@ -193,5 +193,14 @@ namespace agenzia2.Views
             HyperlinkButton hpl = sender as HyperlinkButton;
             GlobalData.OpenSettingFile(hpl.Name + ".txt");
         }
+
+        private void BtnCarrello_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            GlobalData.dCarrelloEsente += double.Parse(TxtEsente.Text);
+            GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
+            GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
+            GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+        }
+
     }
 }
