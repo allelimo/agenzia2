@@ -314,7 +314,8 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
 
-            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+            //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+            GlobalData.displayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
 
         }
 

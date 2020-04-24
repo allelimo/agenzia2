@@ -7,8 +7,8 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 
 //toast
-using Windows.UI.Notifications;
-using Windows.Data.Xml.Dom;
+//using Windows.UI.Notifications;
+//using Windows.Data.Xml.Dom;
 
 namespace agenzia2.Views
 {
@@ -50,6 +50,7 @@ namespace agenzia2.Views
             VisualizzaCarrello();
 
             FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+            GlobalData.displayToastNotification("Il carrello è stato aggiornato", "E' possibile aggiungere elementi al carrello");
 
         }
 
@@ -63,7 +64,7 @@ namespace agenzia2.Views
 
             FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
 
-            displayToastNotification("Il carrello è stato correttamente svuotato", "E' possibile calcolare un nuovo preventivo");
+            GlobalData.displayToastNotification("Il carrello è stato svuotato", "E' possibile calcolare un nuovo preventivo");
 
         }
 
@@ -73,34 +74,27 @@ namespace agenzia2.Views
         }
 
         //ALLE  TOAST
-        private void displayToastNotification(String caption, String message)
-        {
-            var toastTemplate = "<toast launch=\"app-defined-string\">" +
-                                "<visual>" +
-                                  "<binding template =\"ToastGeneric\">" +
-                                    "<text>" + caption + "</text>" +
-                                    "<text>" + message + "</text>" +
-                                  "</binding>" +
-                                "</visual>" +
-                                "</toast>";
+        //private void displayToastNotification(String caption, String message)
+        //{
+        //    var toastTemplate = "<toast launch=\"app-defined-string\">" +
+        //                        "<visual>" +
+        //                          "<binding template =\"ToastGeneric\">" +
+        //                            "<text>" + caption + "</text>" +
+        //                            "<text>" + message + "</text>" +
+        //                          "</binding>" +
+        //                        "</visual>" +
+        //                        "</toast>";
 
-            var xmlDocument = new XmlDocument();
+        //    var xmlDocument = new XmlDocument();
 
-            xmlDocument.LoadXml(toastTemplate);
+        //    xmlDocument.LoadXml(toastTemplate);
 
-            var toastNotification = new ToastNotification(xmlDocument);
+        //    var toastNotification = new ToastNotification(xmlDocument);
 
-            var notification = ToastNotificationManager.CreateToastNotifier();
+        //    var notification = ToastNotificationManager.CreateToastNotifier();
 
-            notification.Show(toastNotification);
-        }
-
-        //Remove toast history
-        private void removeToastHistory()
-        {
-            var toastHistory = ToastNotificationManager.History;
-            toastHistory.Clear();
-        }
+        //    notification.Show(toastNotification);
+        //}
 
     }
 }

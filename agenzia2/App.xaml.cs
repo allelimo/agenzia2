@@ -25,6 +25,7 @@ namespace agenzia2
         public App()
         {
             InitializeComponent();
+            //alle serve a rimuovere la lista delle notifiche
             this.Suspending += OnSuspending;
 
 
@@ -64,6 +65,7 @@ namespace agenzia2
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
+        // alle rimuove la lista delle notifiche
         private  void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();

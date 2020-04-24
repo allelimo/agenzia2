@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 using System.IO;
 using Windows.UI.Popups;
 
+// toast?
+//using Windows.UI.Xaml;
+//using Windows.UI.Xaml.Controls;
+//using Windows.UI.Xaml.Controls.Primitives;
+//toast
+using Windows.UI.Notifications;
+using Windows.Data.Xml.Dom;
+
 namespace agenzia2
 {
     public static class GlobalData
@@ -96,5 +104,25 @@ namespace agenzia2
                 await mydlg.ShowAsync();
             }
         }
+
+
+        public static void displayToastNotification(String caption, String message)
+        {
+            var toastTemplate = "<toast launch=\"app-defined-string\">" +
+                                "<visual>" +
+                                  "<binding template =\"ToastGeneric\">" +
+                                    "<text>" + caption + "</text>" +
+                                    "<text>" + message + "</text>" +
+                                  "</binding>" +
+                                "</visual>" +
+                                "</toast>";
+
+            var xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(toastTemplate);
+            var toastNotification = new ToastNotification(xmlDocument);
+            var notification = ToastNotificationManager.CreateToastNotifier();
+            notification.Show(toastNotification);
+        }
+
     }
 }
