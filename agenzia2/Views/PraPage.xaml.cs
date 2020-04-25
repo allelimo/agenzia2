@@ -104,7 +104,7 @@ namespace agenzia2.Views
         {
             if (MyRdbScelta == "RdbCDP" && !bDeterioramento)
                 return 0; //!duplicato cdp
-            if (MyRdbScelta == "RdbCDP" && bDeterioramento)
+            else if (MyRdbScelta == "RdbCDP" && bDeterioramento)
                 return 1; //!duplicato cdp deterioramento
             else if (MyRdbScelta == "RdbPposs" && !bCrono)
                 return 2; //!perdita possesso
@@ -200,6 +200,39 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+
+
+            int i = ScegliCaso();
+            string mystring = null;
+
+
+
+            if (i == 0)
+                mystring = "duplicato cdp";
+            if (i == 1)
+                mystring = "duplicato cdp deterioramento";
+            else if (i == 2)
+                mystring = "perdita possesso";
+            else if (i == 3)
+                mystring = "perdita possesso + crono";
+            else if (i == 4)
+                mystring = "esportazione UE";
+            else if (i == 5)
+                mystring = "esportazione extra UE";
+            else if (i == 6)
+                mystring = "rinnovo auto";
+            else if (i == 7)
+                mystring = "rinnovo moto";
+            else if (i == 8)
+                mystring = "rettifica";
+            else if (i == 9)
+                mystring = "visura";
+            else if (i == 10)
+                mystring = "crono";
+
+
+            GlobalData.mylist.Add(TxtTotale.Text + " - " + mystring);
+
         }
 
     }

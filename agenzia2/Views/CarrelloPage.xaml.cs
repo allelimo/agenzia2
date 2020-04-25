@@ -6,6 +6,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 
+using System.Collections.Generic;
+
+
 //toast
 //using Windows.UI.Notifications;
 //using Windows.Data.Xml.Dom;
@@ -48,7 +51,7 @@ namespace agenzia2.Views
         private void BtnAggiorna_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             VisualizzaCarrello();
-
+            TestListView();
             //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
             GlobalData.DisplayToastNotification("Il carrello è stato aggiornato", "E' possibile aggiungere elementi al carrello");
 
@@ -71,6 +74,7 @@ namespace agenzia2.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             VisualizzaCarrello();
+            ListCarrello.ItemsSource = GlobalData.mylist;
         }
 
         //ALLE  TOAST
@@ -96,5 +100,25 @@ namespace agenzia2.Views
         //    notification.Show(toastNotification);
         //}
 
+        private void TestListView()
+        {
+            //   List<string> mylist = new List<string>();
+            //   mylist.Add("200.00 - Trasferimento autoveicolo");
+            //   mylist.Add("70.00 - Duplicato libretto");
+
+
+            ListCarrello.ItemsSource = GlobalData.mylist;
+  //          ListCarrello.Items.Clear();
+
+            //ListCarrello.Items.Add("200.00");
+            //ListCarrello.Items.Add("70.00 - Duplicato libretto");
+            //ListCarrello.Items.Add("100.00 - Rinnovo patente");
+
+        }
+
+
+
+
     }
+
 }

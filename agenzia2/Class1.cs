@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Windows.UI.Popups;
 
+using System.Collections.ObjectModel;
+
 // toast?
 //using Windows.UI.Xaml;
 //using Windows.UI.Xaml.Controls;
@@ -42,6 +44,9 @@ namespace agenzia2
         public static double dCarrelloEsente = 0;
         public static double dCarrelloImpIva = 0;
         public static double dCarrelloTotale = 0;
+        // alle prova per lista del carrello
+        //public static List<string> mylist = new List<string>();
+        public static ObservableCollection<String> mylist = new ObservableCollection<string>();
 
         //? inserito il controllo dell'essitenza del file
         /// vediamo sea ppare qeuata linea
