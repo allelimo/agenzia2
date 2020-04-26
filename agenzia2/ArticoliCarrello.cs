@@ -11,5 +11,13 @@ namespace agenzia2
         public string Prezzo { get; set; }
         public string Tipo { get; set; }
         public string Descrizione { get; set; }
+
+        public ArticoliCarrello(string prezzo, string tipo, string descrizione)
+        {
+            Prezzo = prezzo;
+            Tipo = tipo;
+            Descrizione = descrizione;
+
+        }
     }
 }

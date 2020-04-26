@@ -317,6 +317,35 @@ namespace agenzia2.Views
             //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
 
+            int i = ScegliCaso();
+            string mystring = null;
+
+            //if (i == 0)
+            //    mystring = "duplicato cdp";
+            if (i == 1)
+                mystring = "Trasferimento di proprietà";
+            else if (i == 2)
+                mystring = "Trasferimento veicolo d'epoca";
+            else if (i == 3)
+                mystring = "Successione";
+            else if (i == 4)
+                mystring = "Successione veicolo d'epoca";
+            else if (i == 5)
+                mystring = "Successione doppia";
+            else if (i == 6)
+                mystring = "Successione doppia veicolo d'epoca";
+            else if (i == 7)
+                mystring = "Legge Dini";
+            else if (i == 8)
+                mystring = "Atto diovrzio/separazione";
+
+
+            // GlobalData.mylist.Add(TxtTotale.Text + " - " + mystring);
+
+            //          ArticoliCarrello artcar = new ArticoliCarrello() { Prezzo = TxtTotale.Text, Tipo = "Pratiche Pra", Descrizione = mystring };
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Autovettura", mystring);
+            GlobalData.mylist.Add(artcar);
+
         }
 
     }

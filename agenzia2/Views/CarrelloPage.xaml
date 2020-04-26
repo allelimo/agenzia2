@@ -39,8 +39,7 @@
                 </FlyoutBase.AttachedFlyout>
             </Button>
             
- <!--           <StackPanel x:Name="Panel1" Margin="300,100,400,10" Orientation="Vertical" Padding="10" Background="Aqua">-->
-                <ListView x:Name="ListCarrello" Header="Dettagli del carrello" Margin="300,10,0,0">
+            <ListView x:Name="ListCarrello" Header="Dettagli del carrello" Margin="300,10,0,0" BorderThickness="0,0,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:ArticoliCarrello">
                         <Grid>
@@ -52,26 +51,18 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Grid.RowSpan="2" Text="{x:Bind Prezzo}" Width="64"
-                    Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock Grid.Column="1" Text="{x:Bind Descrizione}" Margin="12,6,0,0" 
-                    Style="{ThemeResource BaseTextBlockStyle}"/>
-                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Tipo}" Margin="12,0,0,6" 
-                    Style="{ThemeResource BodyTextBlockStyle}"/>
-                        </Grid>
+                                <TextBlock Grid.Column="0" Grid.RowSpan="2" Text="{x:Bind Prezzo}" Width="64"
+                                    Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Right">
+                                </TextBlock>
+                                <TextBlock Grid.Column="1" Text="{x:Bind Descrizione}" Margin="12,6,0,0" 
+                                    Style="{ThemeResource BaseTextBlockStyle}"/>
+                                <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Tipo}" Margin="12,0,0,6" 
+                                    Style="{ThemeResource BodyTextBlockStyle}"/>
+                            </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
- <!--           </StackPanel>-->
-
-
-
-
-
-            <!--
-                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.
-            -->
+            
         </Grid>
     </Grid>
 </Page>

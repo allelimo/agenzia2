@@ -201,44 +201,37 @@ namespace agenzia2.Views
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
 
-
             int i = ScegliCaso();
             string mystring = null;
 
-
-
             if (i == 0)
-                mystring = "duplicato cdp";
-            if (i == 1)
-                mystring = "duplicato cdp deterioramento";
+                mystring = "Duplicato cdp";
+            else if (i == 1)
+                mystring = "Duplicato cdp deterioramento";
             else if (i == 2)
-                mystring = "perdita possesso";
+                mystring = "Perdita possesso";
             else if (i == 3)
-                mystring = "perdita possesso + crono";
+                mystring = "Perdita possesso + crono";
             else if (i == 4)
-                mystring = "esportazione UE";
+                mystring = "Esportazione UE";
             else if (i == 5)
-                mystring = "esportazione extra UE";
+                mystring = "Esportazione extra UE";
             else if (i == 6)
-                mystring = "rinnovo auto";
+                mystring = "Rinnovo immatricolazione auto";
             else if (i == 7)
-                mystring = "rinnovo moto";
+                mystring = "Rinnovo immatricolazione moto";
             else if (i == 8)
-                mystring = "rettifica";
+                mystring = "Rettifica intestazione";
             else if (i == 9)
-                mystring = "visura";
+                mystring = "Visura";
             else if (i == 10)
-                mystring = "crono";
+                mystring = "Crono";
 
+            // GlobalData.mylist.Add(TxtTotale.Text + " - " + mystring);
 
-           // GlobalData.mylist.Add(TxtTotale.Text + " - " + mystring);
-
-            ArticoliCarrello artcar = new ArticoliCarrello() { Prezzo = TxtTotale.Text, Tipo = "Pratiche Pra", Descrizione = mystring };
-
+            //          ArticoliCarrello artcar = new ArticoliCarrello() { Prezzo = TxtTotale.Text, Tipo = "Pratiche Pra", Descrizione = mystring };
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Pratiche Pra", mystring );
             GlobalData.mylist.Add(artcar);
-
-
-
         }
 
     }
