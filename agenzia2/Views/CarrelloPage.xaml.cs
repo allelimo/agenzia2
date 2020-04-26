@@ -51,7 +51,7 @@ namespace agenzia2.Views
         private void BtnAggiorna_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             VisualizzaCarrello();
-            TestListView();
+            //TestListView();
             //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
             GlobalData.DisplayToastNotification("Il carrello è stato aggiornato", "E' possibile aggiungere elementi al carrello");
 
@@ -66,6 +66,8 @@ namespace agenzia2.Views
             VisualizzaCarrello();
 
             //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+
+            GlobalData.mylist.Clear();
 
             GlobalData.DisplayToastNotification("Il carrello è stato svuotato", "E' possibile calcolare un nuovo preventivo");
 

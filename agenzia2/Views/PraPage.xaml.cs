@@ -231,7 +231,13 @@ namespace agenzia2.Views
                 mystring = "crono";
 
 
-            GlobalData.mylist.Add(TxtTotale.Text + " - " + mystring);
+           // GlobalData.mylist.Add(TxtTotale.Text + " - " + mystring);
+
+            ArticoliCarrello artcar = new ArticoliCarrello() { Prezzo = TxtTotale.Text, Tipo = "Pratiche Pra", Descrizione = mystring };
+
+            GlobalData.mylist.Add(artcar);
+
+
 
         }
 

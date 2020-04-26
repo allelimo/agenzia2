@@ -19,7 +19,7 @@ using Windows.Data.Xml.Dom;
 
 namespace agenzia2
 {
-    public static class GlobalData
+    public  class GlobalData
     {
         // alle inserire qui gli array comuni per le diverse view
         public static string[] arrayauto = new string[11];
@@ -44,9 +44,13 @@ namespace agenzia2
         public static double dCarrelloEsente = 0;
         public static double dCarrelloImpIva = 0;
         public static double dCarrelloTotale = 0;
+
+        public static ObservableCollection<ArticoliCarrello> mylist = new ObservableCollection<ArticoliCarrello>();
+
         // alle prova per lista del carrello
         //public static List<string> mylist = new List<string>();
-        public static ObservableCollection<String> mylist = new ObservableCollection<string>();
+        //public static ObservableCollection<String> mylist = new ObservableCollection<string>();
+
 
         //? inserito il controllo dell'essitenza del file
         /// vediamo sea ppare qeuata linea
