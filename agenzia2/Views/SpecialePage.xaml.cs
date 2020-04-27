@@ -273,6 +273,26 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+
+            int i = ScegliCaso();
+            string mystring = null;
+
+            //if (i == 0)
+            //    mystring = "duplicato cdp";
+            if (i == 0)
+                mystring = "Trasferimento di proprietà/epoca";
+            else if (i == 1)
+                mystring = "Successione/epoca";
+            else if (i == 2)
+                mystring = "Successione doppia";
+            else if (i == 3)
+                mystring = "Legge Dini";
+            else if (i == 4)
+                mystring = "Atto diovrzio/separazione";
+
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Veicolo speciale", mystring);
+            GlobalData.mylist.Add(artcar);
+
         }
 
     }

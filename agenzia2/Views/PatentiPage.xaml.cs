@@ -114,7 +114,7 @@ namespace agenzia2.Views
         {
             if (MyRdbScelta == "RdbVisita")
                 return 0; //!solo visita
-            if (MyRdbScelta == "RdbRinnovo" && !bDati && !bSmarrita)
+            else if (MyRdbScelta == "RdbRinnovo" && !bDati && !bSmarrita)
                 return 1; //!rinnovo 
             else if (MyRdbScelta == "RdbRinnovo" && bDati || bSmarrita)
                 return 2; //!rinnovo + dati + smarrita
@@ -166,6 +166,36 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+
+            int i = ScegliCaso();
+            string mystring = null;
+
+            if (i == 0)
+                mystring = "Solo visita per rilascio";
+            else if (i == 1)
+                mystring = "Rinnovo";
+            else if (i == 2)
+                mystring = "Rinnovo per smarrimento e correzione dati";
+            else if (i == 3)
+                mystring = "Smarrimento o furto";
+            else if (i == 4)
+                mystring = "Deterioramento/furtp e correzione dati";
+            else if (i == 5)
+                mystring = "Riclassificazione";
+            else if (i == 6)
+                mystring = "Internazionale";
+            else if (i == 7)
+                mystring = "Conversione estera";
+            else if (i == 8)
+                mystring = "Permesso per vista CML";
+            else if (i == 7)
+                mystring = "Rinnovo visita già fatta - nuovo CM";
+            else if (i == 7)
+                mystring = "Rinnovo visita già fatta - vecchio CM";
+
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Patente", mystring);
+            GlobalData.mylist.Add(artcar);
+
         }
 
     }
