@@ -314,7 +314,6 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
 
-            //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
 
             int i = ScegliCaso();
@@ -339,13 +338,8 @@ namespace agenzia2.Views
             else if (i == 8)
                 mystring = "Atto diovrzio/separazione";
 
-
-            // GlobalData.mylist.Add(TxtTotale.Text + " - " + mystring);
-
-            //          ArticoliCarrello artcar = new ArticoliCarrello() { Prezzo = TxtTotale.Text, Tipo = "Pratiche Pra", Descrizione = mystring };
             ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Autovettura", mystring);
             GlobalData.mylist.Add(artcar);
-
         }
 
     }

@@ -80,7 +80,7 @@ namespace agenzia2.Views
         {
             if (MyRdbScelta == "RdbCCagg")
                 return 0; //!aggiornamento cc
-            if (MyRdbScelta == "RdbCCdupl" && !bDeterioramento)
+            else if (MyRdbScelta == "RdbCCdupl" && !bDeterioramento)
                 return 1; //!duplicato cc furto
             else if (MyRdbScelta == "RdbCCdupl" && bDeterioramento)
                 return 2; //!duplicato cc deterioramento
@@ -163,6 +163,34 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+
+            int i = ScegliCaso();
+            string mystring = null;
+
+            if (i == 0)
+                mystring = "Aggiornamento carta di circolazione";
+            else if (i == 1)
+                mystring = "Duplicato cc per furto/smarrimento";
+            else if (i == 2)
+                mystring = "Duplicato cc per deterioramento";
+            else if (i == 3)
+                mystring = "Vendita rimorchio/caravan";
+            else if (i == 4)
+                mystring = "Artciolo 94";
+            else if (i == 5)
+                mystring = "Articolo 94 per azienda";
+            else if (i == 6)
+                mystring = "Targa ripetitrice";
+            else if (i == 7)
+                mystring = "Inserimento per revisione";
+            else if (i == 8)
+                mystring = "Targa prova - rilascio";
+            else if (i == 9)
+                mystring = "Targa prova - rinnovo";
+
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Pratica MTC", mystring);
+            GlobalData.mylist.Add(artcar);
+
         }
 
 

@@ -94,7 +94,7 @@ namespace agenzia2.Views
 
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-                CalcolaIptFissa();
+            CalcolaIptFissa();
         }
 
         //alle calcola ipt con valori fissi
@@ -211,6 +211,22 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+
+            int i = ScegliCaso();
+            string mystring = null;
+
+            //if (i == 0)
+            //    mystring = "duplicato cdp";
+            if (i == 7)
+                mystring = "Legge Dini";
+            else if (i == 2)
+                mystring = "Atto di separazione/divorzio";
+            else
+                mystring = "Trasferimento/Successione";
+
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Autocarro", mystring);
+            GlobalData.mylist.Add(artcar);
+
         }
     }
 }

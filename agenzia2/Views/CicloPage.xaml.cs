@@ -161,6 +161,32 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+
+            int i = ScegliCaso();
+            string mystring = null;
+
+            if (i == 0)
+                mystring = "Vendita con targa NUOVA";
+            else if (i == 1)
+                mystring = "Vendita con targa già in possesso";
+            else if (i == 2)
+                mystring = "Sospensione per vendita contestuale";
+            else if (i == 3)
+                mystring = "Sospensione volontaria";
+            else if (i == 4)
+                mystring = "Successione";
+            else if (i == 5)
+                mystring = "n/a";
+            else if (i == 6)
+                mystring = "n/a";
+            else if (i == 7)
+                mystring = "n/a";
+            else if (i == 8)
+                mystring = "n/a";
+
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Ciclomotore", mystring);
+            GlobalData.mylist.Add(artcar);
+
         }
 
     }

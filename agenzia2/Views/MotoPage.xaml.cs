@@ -185,6 +185,30 @@ namespace agenzia2.Views
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
             GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+
+            int i = ScegliCaso();
+            string mystring = null;
+
+            if (i == 0)
+                mystring = "Trasferimento di proprietà";
+            else if (i == 1)
+                mystring = "Trasferimento veicolo d'epoca";
+            else if (i == 2)
+                mystring = "Successione";
+            else if (i == 3)
+                mystring = "Successione veicolo d'epoca";
+            else if (i == 4)
+                mystring = "Successione doppia";
+            else if (i == 5)
+                mystring = "Successione doppia veicolo d'epoca";
+            else if (i == 6)
+                mystring = "Legge Dini";
+            else if (i == 7)
+                mystring = "Atto di separazione o divorzio";
+
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Motoveicolo", mystring);
+            GlobalData.mylist.Add(artcar);
+
         }
 
     }
