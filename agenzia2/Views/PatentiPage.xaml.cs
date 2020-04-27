@@ -179,7 +179,7 @@ namespace agenzia2.Views
             else if (i == 3)
                 mystring = "Smarrimento o furto";
             else if (i == 4)
-                mystring = "Deterioramento/furtp e correzione dati";
+                mystring = "Deterioramento/furto e correzione dati";
             else if (i == 5)
                 mystring = "Riclassificazione";
             else if (i == 6)
@@ -188,9 +188,9 @@ namespace agenzia2.Views
                 mystring = "Conversione estera";
             else if (i == 8)
                 mystring = "Permesso per vista CML";
-            else if (i == 7)
+            else if (i == 9)
                 mystring = "Rinnovo visita già fatta - nuovo CM";
-            else if (i == 7)
+            else if (i == 10)
                 mystring = "Rinnovo visita già fatta - vecchio CM";
 
             ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Patente", mystring);
