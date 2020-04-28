@@ -165,7 +165,7 @@ namespace agenzia2.Views
             GlobalData.dCarrelloEsente += double.Parse(TxtEsente.Text);
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
-            GlobalData.DisplayToastNotification("Il totale è stato aggiunto al carrello", "E' possibile eseguire un altro preventivo");
+            GlobalData.DisplayToastNotification("Patenti", "Il totale è stato aggiunto al carrello");
 
             int i = ScegliCaso();
             string mystring = null;

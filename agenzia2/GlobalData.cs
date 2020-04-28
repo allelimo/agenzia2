@@ -118,7 +118,7 @@ namespace agenzia2
         public static void DisplayToastNotification(String caption, String message)
         {
             var toastTemplate = "<toast launch=\"app-defined-string\">" +
-                "<header id = \"160663\" title = \"carrello\" arguments = \"action=openConversation&amp;id=6289\" />" +   //added header per raggruppamento in notifiche
+                "<header id = \"160663\" title = \"Carrello\" arguments = \"action=openConversation&amp;id=6289\" />" +   //added header per raggruppamento in notifiche
                                 "<visual>" +
                                   "<binding template =\"ToastGeneric\">" +
                                     "<text>" + caption + "</text>" +
@@ -131,7 +131,7 @@ namespace agenzia2
             xmlDocument.LoadXml(toastTemplate);
             var toastNotification = new ToastNotification(xmlDocument);
             var notification = ToastNotificationManager.CreateToastNotifier();
-            toastNotification.ExpirationTime = DateTime.Now.AddSeconds(10); //alle aggiunta expiration time solo per centro notifiche
+            toastNotification.ExpirationTime = DateTime.Now.AddSeconds(30); //alle aggiunta expiration time solo per centro notifiche
             notification.Show(toastNotification);
         }
 
