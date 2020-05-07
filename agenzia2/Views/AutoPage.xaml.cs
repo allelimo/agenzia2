@@ -252,6 +252,21 @@ namespace agenzia2.Views
 
         }
 
+        private void TxtKwh_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                e.Handled = true;
+
+                if (TxtKwh.Text != "")
+                {
+                    if (ScegliCaso() == 1)
+                        CalcolaIptProporzionale();
+                    else
+                        CalcolaIptFissa();
+                }
+            }
+        }
 
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
