@@ -9,7 +9,7 @@
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid>
             <!--   <Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">-->
-            <TextBox x:Name="TxtKwh" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Inserire i kilowatt:" Width="150" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus"/>
+            <TextBox x:Name="TxtKwh" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Inserire i kilowatt:" Width="150" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus" KeyDown="TxtKwh_KeyDown"/>
             <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" Margin="0,118,0,0" FontWeight="Bold" TabIndex="1" IsReadOnly="True" IsTabStop="False"/>
             <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,179,0,0" Foreground="Red" TabIndex="2" IsReadOnly="True" IsTabStop="False"/>
             <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,241,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>

@@ -188,6 +188,20 @@ namespace agenzia2.Views
             GlobalData.OpenSettingFile(hpl.Name + ".txt");
         }
 
+        private void TxtKwh_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                e.Handled = true;
+
+                if (TxtKwh.Text != "")
+                {
+                    CalcolaIptFissa();
+                }
+            }
+
+        }
+
         private void TxtKwh_GotFocus(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             TxtKwh.SelectAll();
