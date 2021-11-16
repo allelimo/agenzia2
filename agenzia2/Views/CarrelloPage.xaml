@@ -8,11 +8,13 @@
     mc:Ignorable="d" Loaded="Page_Loaded">
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid>
-        <!--    Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"> -->
+            <!--    Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"> -->
 
             <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" IsReadOnly="True" IsTabStop="False"/>
             <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" IsReadOnly="True" IsTabStop="False"/>
             <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtImponibile" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Solo imponibile" Width="150" Margin="0,184,0,0" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtIva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="IVA" Width="150" Margin="0,246,0,0" IsReadOnly="True" IsTabStop="False"/>
             <Button x:Name="BtnAggiorna" Width="150" Content="Aggiorna Carrello" Click="BtnAggiorna_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top" >
                 <FlyoutBase.AttachedFlyout>
                     <Flyout>
@@ -38,7 +40,7 @@
                     </Flyout>
                 </FlyoutBase.AttachedFlyout>
             </Button>
-            
+
             <ListView x:Name="ListCarrello" Header="Dettagli del carrello" Margin="300,10,0,0" BorderThickness="0,0,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:ArticoliCarrello">
@@ -51,18 +53,17 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Grid.RowSpan="2" Text="{x:Bind Prezzo}" Width="64"
+                            <TextBlock Grid.Column="0" Grid.RowSpan="2" Text="{x:Bind Prezzo}" Width="64"
                                     Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Right">
-                                </TextBlock>
-                                <TextBlock Grid.Column="1" Text="{x:Bind Descrizione}" Margin="12,6,0,0" 
+                            </TextBlock>
+                            <TextBlock Grid.Column="1" Text="{x:Bind Descrizione}" Margin="12,6,0,0" 
                                     Style="{ThemeResource BaseTextBlockStyle}"/>
-                                <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Tipo}" Margin="12,0,0,6" 
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Tipo}" Margin="12,0,0,6" 
                                     Style="{ThemeResource BodyTextBlockStyle}"/>
-                            </Grid>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
         </Grid>
     </Grid>
 </Page>

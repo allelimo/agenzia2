@@ -268,6 +268,33 @@ namespace agenzia2.Views
             }
         }
 
+        private void TxtCavalli_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                e.Handled = true;
+
+                if (TxtCavalli.Text != "")
+                {
+                    //int iCavalli = 0;
+                    double iKilowatt = 0;
+                    double dConversionRate = 0.735;
+
+                    int iCavalli = int.Parse(TxtCavalli.Text);
+                    iKilowatt = iCavalli * dConversionRate;
+
+                    TxtCavtoKwh.Text = iKilowatt.ToString("N0");
+
+
+
+
+
+
+                }
+            }
+        }
+
+
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
         {

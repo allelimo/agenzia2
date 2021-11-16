@@ -46,6 +46,15 @@ namespace agenzia2.Views
             TxtEsente.Text = GlobalData.dCarrelloEsente.ToString("N2");
             TxtImpiva.Text = GlobalData.dCarrelloImpIva.ToString("N2");
             TxtTotale.Text = GlobalData.dCarrelloTotale.ToString("N2");
+
+            double dSoloImponile = 0;
+            double dSoloIVA = 0;
+            double dScorporoIVA = 1.22;
+
+            dSoloImponile = GlobalData.dCarrelloImpIva / dScorporoIVA;
+            dSoloIVA = GlobalData.dCarrelloImpIva - dSoloImponile;
+            TxtImponibile.Text = dSoloImponile.ToString("N2");
+            TxtIva.Text = dSoloIVA.ToString("N2");
         }
 
         private void BtnAggiorna_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
