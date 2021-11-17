@@ -47,12 +47,12 @@ namespace agenzia2.Views
             TxtImpiva.Text = GlobalData.dCarrelloImpIva.ToString("N2");
             TxtTotale.Text = GlobalData.dCarrelloTotale.ToString("N2");
 
-            double dSoloImponile = 0;
-            double dSoloIVA = 0;
+            //double dSoloImponile = 0;
+            //double dSoloIVA = 0;
             double dScorporoIVA = 1.22;
 
-            dSoloImponile = GlobalData.dCarrelloImpIva / dScorporoIVA;
-            dSoloIVA = GlobalData.dCarrelloImpIva - dSoloImponile;
+            double dSoloImponile = GlobalData.dCarrelloImpIva / dScorporoIVA;
+            double dSoloIVA = GlobalData.dCarrelloImpIva - dSoloImponile;
             TxtImponibile.Text = dSoloImponile.ToString("N2");
             TxtIva.Text = dSoloIVA.ToString("N2");
         }
