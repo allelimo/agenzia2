@@ -13,8 +13,8 @@
             <TextBox x:Name="TxtTotale" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Prezzo totale" Width="150" FontWeight="Bold" IsReadOnly="True" IsTabStop="False"/>
             <TextBox x:Name="TxtEsente" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Esente art. 15" Width="150" Margin="0,61,0,0" Foreground="Red" IsReadOnly="True" IsTabStop="False"/>
             <TextBox x:Name="TxtImpiva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Imponibile +IVA" Width="150" Margin="0,122,0,0" IsReadOnly="True" IsTabStop="False"/>
-            <TextBox x:Name="TxtImponibile" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Solo imponibile" Width="150" Margin="0,184,0,0" IsReadOnly="True" IsTabStop="False"/>
-            <TextBox x:Name="TxtIva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="IVA" Width="150" Margin="0,246,0,0" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtImponibile" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Solo imponibile" Width="150" Margin="20,184,0,0" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtIva" HorizontalAlignment="Left" Text="0.00" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="IVA" Width="150" Margin="20,246,0,0" IsReadOnly="True" IsTabStop="False"/>
             <Button x:Name="BtnAggiorna" Width="150" Content="Aggiorna Carrello" Click="BtnAggiorna_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top" >
                 <FlyoutBase.AttachedFlyout>
                     <Flyout>

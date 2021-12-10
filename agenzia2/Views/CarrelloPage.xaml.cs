@@ -7,6 +7,9 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 
 using System.Collections.Generic;
+using System.Windows;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 
 //toast
@@ -79,6 +82,16 @@ namespace agenzia2.Views
             GlobalData.mylist.Clear();
 
             GlobalData.DisplayToastNotification("Riepilogo carrello", "Il carrello è stato svuotato");
+
+            GlobalData.bCarrelloPieno = false;
+
+/*
+ *          NON FUNZIONA
+            var window = new AutoPage();
+
+            window.BtnCarrello.Foreground = new SolidColorBrush(Colors.Black);
+            window.BtnCarrello.Content = "Carrello";
+*/
 
         }
 

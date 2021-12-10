@@ -44,6 +44,8 @@ namespace agenzia2
         public static double dCarrelloEsente = 0;
         public static double dCarrelloImpIva = 0;
         public static double dCarrelloTotale = 0;
+        // alle nuova variabile per bottone
+        public static bool bCarrelloPieno;
 
         public static ObservableCollection<ArticoliCarrello> mylist = new ObservableCollection<ArticoliCarrello>();
 
