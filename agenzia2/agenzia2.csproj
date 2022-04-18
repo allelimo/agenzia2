@@ -162,6 +162,9 @@
     <Compile Include="Views\CicloPage.xaml.cs">
       <DependentUpon>CicloPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CmlPage.xaml.cs">
+      <DependentUpon>CmlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MotoPage.xaml.cs">
       <DependentUpon>MotoPage.xaml</DependentUpon>
     </Compile>
@@ -224,6 +227,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CicloPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CmlPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
