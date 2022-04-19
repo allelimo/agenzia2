@@ -14,8 +14,8 @@ namespace agenzia2.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
 
             // alle qui: caricare i dati negli array
-            GlobalData.LoadDatainArray("ciclo_impiva.txt", GlobalData.arrayciclo_impiva);
-            GlobalData.LoadDatainArray("ciclo_esente.txt", GlobalData.arrayciclo_esente);
+            GlobalData.LoadDatainArray("cml_impiva.txt", GlobalData.arraycml_impiva);
+            GlobalData.LoadDatainArray("cml_esente.txt", GlobalData.arraycml_esente);
 
 
         }
@@ -38,7 +38,7 @@ namespace agenzia2.Views
         // alle variabili per radiobutton
         private string MyRdbScelta = null;
         // alle variabili per toggleswitch
-        private bool bTarga, bContestuale, bRaccomandata = false;
+        private bool bRaccomandata = false;
 
         private void RdbGruppo_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -47,12 +47,10 @@ namespace agenzia2.Views
 
             try
             {
-                if (TswTargaNuova == null)
+                if (TswRaccomandata == null)
                     return;
                 else
                 {
-                    TswTargaNuova.IsOn = false;
-                    TswContestuale.IsOn = false;
                     TswRaccomandata.IsOn = false;
                     TswRaccomandata.IsOn = false;
                 }
@@ -64,8 +62,6 @@ namespace agenzia2.Views
         }
         private void Tsw_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            bTarga = TswTargaNuova.IsOn;
-            bContestuale = TswContestuale.IsOn;
             bRaccomandata = TswRaccomandata.IsOn;
             //! per usare messagedialog serve windows.ui.popups
             //! aggiungere async
@@ -77,26 +73,22 @@ namespace agenzia2.Views
         //alle controlla bottoni e switch per decidere il tipo di tarsferimento richiesto
         private int ScegliCaso()
         {
-            if (MyRdbScelta == "RdbTrasferimento" && !bTarga)
-                return 0; //!vendita con targa NUOVA
-            if (MyRdbScelta == "RdbTrasferimento" && bTarga)
-                return 1; //!vendita con targa vecchia
-            else if (MyRdbScelta == "RdbSospensione" && !bContestuale)
-                return 2; //!sospensione per vendita
-            else if (MyRdbScelta == "RdbSospensione" && bContestuale)
-                return 3; //!sospensione volontaria
-            else if (MyRdbScelta == "RdbSuccessione")
-                return 4; //!successione
-            else if (MyRdbScelta == "Rdb1")
-                return 5; //!art.94 per azienda
+            if (MyRdbScelta == "RdbPatduplicatocc")
+                return 0; //!duplicato patente attraverso carabinieri
+            if (MyRdbScelta == "RdbCmlvisita")
+                return 1; //!pagamento per visita cml già prenotata
+            else if (MyRdbScelta == "RdbCmlprenotazione")
+                return 2; //!prenotazione visita cml
+            else if (MyRdbScelta == "RdbDuduplicatocc")
+                return 3; //!duplicato DU attraverso carabinieri
             else if (MyRdbScelta == "Rdb2")
-                return 6; //!targa ripetitrice
+                return 4; //!libero
             else if (MyRdbScelta == "Rdb3")
-                return 7; //! inserimento per revisione
+                return 5; //!libero
             else if (MyRdbScelta == "Rdb4")
-                return 8; //!targa prova nuova
+                return 6; //!libero
             else
-                return 9;
+                return 7;
         }
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
@@ -107,8 +99,8 @@ namespace agenzia2.Views
             //controlla il caso che dobbiamo calcolare
             int myScelta = ScegliCaso();
             //alle recupera i valori da file - l'indice dell'array è -2 perchè l'array paete da 0 e il primo caso è return 0
-            string strImpiva = GlobalData.arrayciclo_impiva[myScelta];
-            string strEsente = GlobalData.arrayciclo_esente[myScelta];
+            string strImpiva = GlobalData.arraycml_impiva[myScelta];
+            string strEsente = GlobalData.arraycml_esente[myScelta];
             // trasformiamo in numeri
             double dbImpiva = double.Parse(strImpiva);
             double dbEsente = double.Parse(strEsente);
@@ -128,15 +120,15 @@ namespace agenzia2.Views
 
         private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (RdbTrasferimento.IsChecked == false &&
-                RdbSospensione.IsChecked == false &&
-                RdbSuccessione.IsChecked == false &&
-                Rdb1.IsChecked == false &&
+            if (RdbPatduplicatocc.IsChecked == false &&
+                RdbCmlvisita.IsChecked == false &&
+                RdbCmlprenotazione.IsChecked == false &&
+                RdbDuduplicatocc.IsChecked == false &&
                 Rdb2.IsChecked == false &&
                 Rdb3.IsChecked == false &&
                 Rdb4.IsChecked == false)
 
-                RdbTrasferimento.IsChecked = true;
+                RdbPatduplicatocc.IsChecked = true;
 
         }
 
