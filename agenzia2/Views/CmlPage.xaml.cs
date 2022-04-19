@@ -152,7 +152,7 @@ namespace agenzia2.Views
             GlobalData.dCarrelloEsente += double.Parse(TxtEsente.Text);
             GlobalData.dCarrelloImpIva += double.Parse(TxtImpiva.Text);
             GlobalData.dCarrelloTotale += double.Parse(TxtTotale.Text);
-            GlobalData.DisplayToastNotification("Ciclomotore", "Il totale è stato aggiunto al carrello");
+            GlobalData.DisplayToastNotification("PagoPA/CML", "Il totale è stato aggiunto al carrello");
 
             int i = ScegliCaso();
             string mystring = null;
@@ -176,7 +176,7 @@ namespace agenzia2.Views
             else if (i == 8)
                 mystring = "n/a";
 
-            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Ciclomotore", mystring);
+            ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "PagoPA/CML", mystring);
             GlobalData.mylist.Add(artcar);
 
         }
