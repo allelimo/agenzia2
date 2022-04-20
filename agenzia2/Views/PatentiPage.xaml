@@ -29,9 +29,7 @@
             <Button x:Name="BtnCarrello" Content="Carrello" Width="150" Click="BtnCarrello_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top" />
             <HyperlinkButton x:Name="patente_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="patente_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
-            <TextBlock HorizontalAlignment="Left" Margin="500,318,0,0" Text="Cambio indirizzo, Vendita solo MTC" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="30" Width="172"/>
-            <TextBlock HorizontalAlignment="Left" Margin="500,336,0,0" Text="Smarrimento, furto, deterioramento" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="27" Width="135"/>
-            <TextBlock HorizontalAlignment="Left" Margin="500,363,0,0" Text="Comodato d'uso, Successione, Cambio Ragione Sociale " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="29" Width="169"/>
+            <TextBlock HorizontalAlignment="Left" Margin="500,318,0,0" Text="Cambio indirizzo, Vendita solo MTC" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="30" Width="172" Visibility="Collapsed"/>
 
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
