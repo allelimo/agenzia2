@@ -3,8 +3,16 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Popups;
 
 using System.Linq;
+
+//carrello flyout
+using Windows.UI.Xaml;
+//using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 namespace agenzia2.Views
 {
@@ -210,6 +218,21 @@ namespace agenzia2.Views
 
                 RdbTrasferimento.IsChecked = true;
 
+            // carrello pieno/vuoto
+            if (GlobalData.bCarrelloPieno == true)
+            {
+                BtnCarrello.Content = "Carrello pieno";
+                BtnCarrello.Foreground = new SolidColorBrush(Colors.White);
+                BtnCarrello.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                BtnCarrello.Content = "Carrello";
+                BtnCarrello.Foreground = new SolidColorBrush(Colors.Black);
+                BtnCarrello.Background = new SolidColorBrush(Colors.LightGray);
+            }
+
+
         }
 
         private void TxtKwh_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
@@ -309,6 +332,13 @@ namespace agenzia2.Views
 
             ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Veicolo speciale", mystring);
             GlobalData.mylist.Add(artcar);
+
+            // carrello pieno/vuoto
+            GlobalData.bCarrelloPieno = true;
+            BtnCarrello.Content = "Carrello pieno";
+            BtnCarrello.Foreground = new SolidColorBrush(Colors.White);
+            BtnCarrello.Background = new SolidColorBrush(Colors.Red);
+
 
         }
 

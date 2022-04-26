@@ -3,8 +3,16 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using Windows.UI.Xaml.Controls;
-
 using Windows.UI.Popups;
+
+using System.Linq;
+
+//carrello flyout
+using Windows.UI.Xaml;
+//using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 namespace agenzia2.Views
 {
@@ -141,6 +149,21 @@ namespace agenzia2.Views
                 RdbCrono.IsChecked == false)
 
                 RdbCDP.IsChecked = true;
+
+            // carrello pieno/vuoto
+            if (GlobalData.bCarrelloPieno == true)
+            {
+                BtnCarrello.Content = "Carrello pieno";
+                BtnCarrello.Foreground = new SolidColorBrush(Colors.White);
+                BtnCarrello.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                BtnCarrello.Content = "Carrello";
+                BtnCarrello.Foreground = new SolidColorBrush(Colors.Black);
+                BtnCarrello.Background = new SolidColorBrush(Colors.LightGray);
+            }
+
         }
 
 
@@ -232,6 +255,13 @@ namespace agenzia2.Views
             //          ArticoliCarrello artcar = new ArticoliCarrello() { Prezzo = TxtTotale.Text, Tipo = "Pratiche Pra", Descrizione = mystring };
             ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Pratiche Pra", mystring );
             GlobalData.mylist.Add(artcar);
+
+            // carrello pieno/vuoto
+            GlobalData.bCarrelloPieno = true;
+            BtnCarrello.Content = "Carrello pieno";
+            BtnCarrello.Foreground = new SolidColorBrush(Colors.White);
+            BtnCarrello.Background = new SolidColorBrush(Colors.Red);
+
         }
 
     }
