@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>agenzia2.Core</RootNamespace>
-    <AssemblyVersion>1.4.8014.31684</AssemblyVersion>
-    <FileVersion>1.4.8014.31684</FileVersion>
+    <AssemblyVersion>1.4.22120.0925</AssemblyVersion>
+    <FileVersion>1.4.22120.0925</FileVersion>
   </PropertyGroup>
 
    <ItemGroup>
