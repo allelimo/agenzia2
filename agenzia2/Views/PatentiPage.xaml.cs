@@ -107,7 +107,8 @@ namespace agenzia2.Views
                 RdbInternazionale.IsChecked == false &&
                 RdbEstera.IsChecked == false &&
                 RdbPermessoCM.IsChecked == false &&
-                RdbVisitaFatta.IsChecked == false)
+                RdbVisitaFatta.IsChecked == false &&
+                RdbAttestato.IsChecked == false)
 
                 RdbVisita.IsChecked = true;
 
@@ -161,8 +162,10 @@ namespace agenzia2.Views
                 return 9; //!visita fatta - nuovo CM
             else if (MyRdbScelta == "RdbVisitaFatta" && bVecchio)
                 return 10; //!visita fatta - vecchio CM
-            else
+            else if (MyRdbScelta == "RdbAttestato")
                 return 11;
+            else
+                return 12;
         }
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
@@ -217,6 +220,9 @@ namespace agenzia2.Views
                 mystring = "Rinnovo visita già fatta - nuovo CM";
             else if (i == 10)
                 mystring = "Rinnovo visita già fatta - vecchio CM";
+            else if (i == 11)
+                mystring = "Attestato di validità";
+
 
             ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "Patente", mystring);
             GlobalData.mylist.Add(artcar);

@@ -34,8 +34,8 @@ namespace agenzia2
         public static string[] arrayspeciale = new string[7];
         public static string[] arrayspeciale_esente = new string[4];
         public static string[] arrayspeciale_impiva = new string[4];
-        public static string[] arraypatente_esente = new string[11];
-        public static string[] arraypatente_impiva = new string[11];
+        public static string[] arraypatente_esente = new string[12];
+        public static string[] arraypatente_impiva = new string[12];
         public static string[] arraycamion_esente = new string[9];
         public static string[] arraycamion_impiva = new string[9];
         public static string[] arrayciclo_esente = new string[9];
