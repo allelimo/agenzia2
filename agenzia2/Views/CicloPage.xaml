@@ -21,8 +21,8 @@
             <RadioButton x:Name="Rdb3" Content="da assegnare" Margin="300,258,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" IsEnabled="False" />
             <RadioButton x:Name="Rdb4" Content="da assegnare" Margin="300,295,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" IsEnabled="False" />
 
-            <ToggleSwitch x:Name="TswTargaNuova" Header="" OnContent ="Senza rilascio targa" OffContent ="Con rilascio targa" Margin="330,50,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
-            <ToggleSwitch x:Name="TswContestuale" Header="" OnContent ="Volontaria" OffContent ="Vendita contestuale" Margin="330,111,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <ToggleSwitch x:Name="TswTargaNuova" Header="" OnContent ="Senza rilascio targa - [AP]" OffContent ="Con rilascio targa - [1S]" Margin="330,50,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <ToggleSwitch x:Name="TswContestuale" Header="" OnContent ="Volontaria - [1E?]" OffContent ="Vendita contestuale - [-]" Margin="330,111,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
 
             <ToggleSwitch x:Name="TswRaccomandata" Header="Raccomandata" Margin="0,328,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
             <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top"/>

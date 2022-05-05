@@ -23,7 +23,7 @@
             <RadioButton x:Name="RdbRevisione" Content="Inserimento per revisione" Margin="300,269,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbTargaProva" Content="Targa Prova" Margin="300,306,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
 
-            <ToggleSwitch x:Name="TswDeterioramento" Header="" OnContent ="Deterioramento" OffContent ="Smarrimento" Margin="330,107,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <ToggleSwitch x:Name="TswDeterioramento" Header="" OnContent ="Deterioramento - [1E]" OffContent ="Smarrimento - [???]" Margin="330,107,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
             <ToggleSwitch x:Name="TswAzienda" Header="" OnContent ="Azienda" OffContent ="Privato" Margin="330,164,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
             <ToggleSwitch x:Name="TswRinnovo" Header="" OnContent ="Rinnovo" OffContent ="Rilascio" Margin="330,332,0,0" Toggled="Tsw_Toggled" VerticalAlignment="Top" />
 
