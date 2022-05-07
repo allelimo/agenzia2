@@ -18,7 +18,7 @@
             <RadioButton x:Name="RdbEsp" Content="Esportazione" Margin="300,137,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbRinnAuto" Content="Rinnovo immatricolazione auto" Margin="300,194,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbRinnMoto" Content="Rinnovo immatricolazione moto" Margin="300,231,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
-            <RadioButton x:Name="RdbRettifica" Content="Rettifica intestazione" Margin="300,268,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbRettifica" Content="Rettifica intestazione (85.2 + 241.2)" Margin="300,268,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbVisura" Content="Visura" Margin="300,307,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbCrono" Content="Estratto cronologico" Margin="300,346,0,0" Checked="RdbGruppo_Checked" VerticalAlignment="Top" />
             <ToggleSwitch x:Name="TswDeterioramento" Header="" OnContent ="Deterioramento" OffContent ="Smarrimento" Margin="330,48,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" IsEnabled="False" />
