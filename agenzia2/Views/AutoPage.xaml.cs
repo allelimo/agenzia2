@@ -294,12 +294,38 @@ namespace agenzia2.Views
                 {
                     //int iCavalli = 0;
                     double iKilowatt = 0;
-                    double dConversionRate = 0.735;
+                    double dConversionRate = 0.74;
 
                     int iCavalli = int.Parse(TxtCavalli.Text);
                     iKilowatt = iCavalli * dConversionRate;
 
                     TxtCavtoKwh.Text = iKilowatt.ToString("N0");
+
+
+
+
+
+
+                }
+            }
+        }
+
+        private void TxtKwh_conv_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                e.Handled = true;
+
+                if (TxtKwh_conv.Text != "")
+                {
+                    //int iCavalli = 0;
+                    double iCavalli = 0;
+                    double dConversionRate = 0.74;
+
+                    int iKwh = int.Parse(TxtKwh_conv.Text);
+                    iCavalli = iKwh / dConversionRate;
+
+                    TxtKwhtoCav.Text = iCavalli.ToString("N0");
 
 
 

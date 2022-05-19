@@ -36,6 +36,8 @@
             </CheckBox>
             <TextBox x:Name="TxtCavalli" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Cavalli:" Width="75" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus" KeyDown="TxtCavalli_KeyDown" Margin="300,320,0,0"/>
             <TextBox x:Name="TxtCavtoKwh" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Kwh" Width="75" Margin="388,320,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtKwh_conv" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Kwh:" Width="75" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus" KeyDown="TxtKwh_conv_KeyDown" Margin="300,380,0,0"/>
+            <TextBox x:Name="TxtKwhtoCav" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Cavalli" Width="75" Margin="388,380,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
 
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
