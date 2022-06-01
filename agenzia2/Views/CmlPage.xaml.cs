@@ -98,8 +98,10 @@ namespace agenzia2.Views
                 return 5; //!patente nautica - solo visita
             else if (MyRdbScelta == "RdbPNTutto")
                 return 6; //!patente nautica - visita e richiesta
+            else if (MyRdbScelta == "RdbREVE")
+                return 7; //!reve - registro veicoli esteri
             else
-                return 7;
+                return 8;
         }
 
         //alle calcola ipt con valori fissi
@@ -138,7 +140,8 @@ namespace agenzia2.Views
                 RdbDuduplicatocc.IsChecked == false &&
                 RdbPNRichiesta.IsChecked == false &&
                 RdbPNVisita.IsChecked == false &&
-                RdbPNTutto.IsChecked == false)
+                RdbPNTutto.IsChecked == false &&
+                RdbREVE.IsChecked == false)
 
                 RdbPatduplicatocc.IsChecked = true;
 
@@ -199,7 +202,7 @@ namespace agenzia2.Views
             else if (i == 6)
                 mystring = "Patente nautica - visita e richiesta";
             else if (i == 7)
-                mystring = "n/a";
+                mystring = "REVE - registro veicoli esteri";
             else if (i == 8)
                 mystring = "n/a";
 
