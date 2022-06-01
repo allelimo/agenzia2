@@ -92,15 +92,16 @@ namespace agenzia2.Views
                 return 2; //!prenotazione visita cml
             else if (MyRdbScelta == "RdbDuduplicatocc")
                 return 3; //!duplicato DU attraverso carabinieri
-            else if (MyRdbScelta == "Rdb2")
-                return 4; //!libero
-            else if (MyRdbScelta == "Rdb3")
-                return 5; //!libero
-            else if (MyRdbScelta == "Rdb4")
-                return 6; //!libero
+            else if (MyRdbScelta == "RdbPNRichiesta")
+                return 4; //!patente nautica - solo richiesta tagliando
+            else if (MyRdbScelta == "RdbPNVisita")
+                return 5; //!patente nautica - solo visita
+            else if (MyRdbScelta == "RdbPNTutto")
+                return 6; //!patente nautica - visita e richiesta
             else
                 return 7;
         }
+
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
         {
@@ -135,9 +136,9 @@ namespace agenzia2.Views
                 RdbCmlvisita.IsChecked == false &&
                 RdbCmlprenotazione.IsChecked == false &&
                 RdbDuduplicatocc.IsChecked == false &&
-                Rdb2.IsChecked == false &&
-                Rdb3.IsChecked == false &&
-                Rdb4.IsChecked == false)
+                RdbPNRichiesta.IsChecked == false &&
+                RdbPNVisita.IsChecked == false &&
+                RdbPNTutto.IsChecked == false)
 
                 RdbPatduplicatocc.IsChecked = true;
 
@@ -184,19 +185,19 @@ namespace agenzia2.Views
             string mystring = null;
 
             if (i == 0)
-                mystring = "Vendita con targa NUOVA";
+                mystring = "Duplicato patente tramite Carabinieri";
             else if (i == 1)
-                mystring = "Vendita con targa già in possesso";
+                mystring = "Bollettini per visita presso CML già prenotata";
             else if (i == 2)
-                mystring = "Sospensione per vendita contestuale";
+                mystring = "Prenotazione visita presso CML";
             else if (i == 3)
-                mystring = "Sospensione volontaria";
+                mystring = "Duplicato DU tramite Carabinieri";
             else if (i == 4)
-                mystring = "Successione";
+                mystring = "Richiesta Patente nautica - visita già fatta";
             else if (i == 5)
-                mystring = "n/a";
+                mystring = "Patente nautica - solo visita";
             else if (i == 6)
-                mystring = "n/a";
+                mystring = "Patente nautica - visita e richiesta";
             else if (i == 7)
                 mystring = "n/a";
             else if (i == 8)
@@ -210,8 +211,6 @@ namespace agenzia2.Views
             BtnCarrello.Content = "Carrello pieno";
             BtnCarrello.Foreground = new SolidColorBrush(Colors.White);
             BtnCarrello.Background = new SolidColorBrush(Colors.Red);
-
-
         }
 
     }

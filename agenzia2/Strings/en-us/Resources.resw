@@ -158,7 +158,7 @@
     <comment>Navigation view item name for Ciclo</comment>
   </data>
   <data name="Shell_Cml.Content" xml:space="preserve">
-    <value>PagoPA e CML</value>
+    <value>PagoPA e CML / Patenti Nautiche</value>
     <comment>Navigation view item name for PagoPA e CML</comment>
   </data>
   <data name="ExceptionSettingsStorageExtensionsFileNameIsNullOrEmpty" xml:space="preserve">
