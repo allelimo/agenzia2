@@ -142,6 +142,9 @@ namespace agenzia2.Views
                 CalcolaIptProporzionale();
             else
                 CalcolaIptFissa();
+            //converti anche kwh e cavalli
+            CalcolaKwhdaCavalli();
+            CalcolaCavallidaKwh();
         }
 
         //alle calcola ipt proporzionale usando i dati degli array
@@ -290,23 +293,7 @@ namespace agenzia2.Views
             {
                 e.Handled = true;
 
-                if (TxtCavalli.Text != "")
-                {
-                    //int iCavalli = 0;
-                    double iKilowatt = 0;
-                    double dConversionRate = 0.74;
-
-                    int iCavalli = int.Parse(TxtCavalli.Text);
-                    iKilowatt = iCavalli * dConversionRate;
-
-                    TxtCavtoKwh.Text = iKilowatt.ToString("N0");
-
-
-
-
-
-
-                }
+                CalcolaKwhdaCavalli();
             }
         }
 
@@ -316,24 +303,39 @@ namespace agenzia2.Views
             {
                 e.Handled = true;
 
-                if (TxtKwh_conv.Text != "")
-                {
-                    //int iCavalli = 0;
-                    double iCavalli = 0;
-                    double dConversionRate = 0.74;
-
-                    int iKwh = int.Parse(TxtKwh_conv.Text);
-                    iCavalli = iKwh / dConversionRate;
-
-                    TxtKwhtoCav.Text = iCavalli.ToString("N0");
-
-
-
-
-
-
-                }
+                CalcolaCavallidaKwh();
             }
+        }
+
+        private void CalcolaKwhdaCavalli()
+        {
+            if (TxtCavalli.Text != "")
+            {
+                //int iCavalli = 0;
+                double iKilowatt = 0;
+                double dConversionRate = 0.74;
+
+                int iCavalli = int.Parse(TxtCavalli.Text);
+                iKilowatt = iCavalli * dConversionRate;
+
+                TxtCavtoKwh.Text = iKilowatt.ToString("N0");
+            }
+
+        }
+        private void CalcolaCavallidaKwh()
+        {
+            if (TxtKwh_conv.Text != "")
+            {
+                //int iCavalli = 0;
+                double iCavalli = 0;
+                double dConversionRate = 0.74;
+
+                int iKwh = int.Parse(TxtKwh_conv.Text);
+                iCavalli = iKwh / dConversionRate;
+
+                TxtKwhtoCav.Text = iCavalli.ToString("N0");
+            }
+
         }
 
 
