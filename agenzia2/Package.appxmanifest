@@ -10,7 +10,7 @@
   <Identity
     Name="ADB8C078-41AE-4367-A889-78E68D6A31B1"
     Publisher="CN=alessandro limonta"
-    Version="1.0.22.0" />
+    Version="1.0.24.0" />
 
   <mp:PhoneIdentity PhoneProductId="ADB8C078-41AE-4367-A889-78E68D6A31B1" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
