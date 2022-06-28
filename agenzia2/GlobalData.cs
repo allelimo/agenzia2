@@ -40,8 +40,8 @@ namespace agenzia2
         public static string[] arraycamion_impiva = new string[9];
         public static string[] arrayciclo_esente = new string[9];
         public static string[] arrayciclo_impiva = new string[9];
-        public static string[] arraycml_esente = new string[10];
-        public static string[] arraycml_impiva = new string[10];
+        public static string[] arraycml_esente = new string[11];
+        public static string[] arraycml_impiva = new string[11];
 
         // alle tre variabili per la gestione del carrello
         public static double dCarrelloEsente = 0;
