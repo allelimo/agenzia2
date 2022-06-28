@@ -106,7 +106,6 @@ namespace agenzia2.Views
                 RdbRiclassificazione.IsChecked == false &&
                 RdbInternazionale.IsChecked == false &&
                 RdbEstera.IsChecked == false &&
-                RdbPermessoCM.IsChecked == false &&
                 RdbVisitaFatta.IsChecked == false &&
                 RdbAttestato.IsChecked == false)
 
@@ -156,16 +155,14 @@ namespace agenzia2.Views
                 return 6; //! internazionale
             else if (MyRdbScelta == "RdbEstera")
                 return 7; //!conversione patente estera
-            else if (MyRdbScelta == "RdbPermessoCM")
-                return 8; //!permesso per vista CML
             else if (MyRdbScelta == "RdbVisitaFatta" && !bVecchio)
-                return 9; //!visita fatta - nuovo CM
+                return 8; //!visita fatta - nuovo CM
             else if (MyRdbScelta == "RdbVisitaFatta" && bVecchio)
-                return 10; //!visita fatta - vecchio CM
+                return 9; //!visita fatta - vecchio CM
             else if (MyRdbScelta == "RdbAttestato")
-                return 11;
+                return 10;
             else
-                return 12;
+                return 11;
         }
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
@@ -215,12 +212,10 @@ namespace agenzia2.Views
             else if (i == 7)
                 mystring = "Conversione estera";
             else if (i == 8)
-                mystring = "Permesso per vista CML";
-            else if (i == 9)
                 mystring = "Rinnovo visita già fatta - nuovo CM";
-            else if (i == 10)
+            else if (i == 9)
                 mystring = "Rinnovo visita già fatta - vecchio CM";
-            else if (i == 11)
+            else if (i == 10)
                 mystring = "Attestato di validità";
 
 

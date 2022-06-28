@@ -86,22 +86,31 @@ namespace agenzia2.Views
         {
             if (MyRdbScelta == "RdbPatduplicatocc")
                 return 0; //!duplicato patente attraverso carabinieri
-            if (MyRdbScelta == "RdbCmlvisita")
+            else if (MyRdbScelta == "RdbCmlvisita")
                 return 1; //!pagamento per visita cml già prenotata
             else if (MyRdbScelta == "RdbCmlprenotazione")
                 return 2; //!prenotazione visita cml
+
+            else if (MyRdbScelta == "RdbConPermessoCML")
+                return 3; //!prenotazione visita cml
+            else if (MyRdbScelta == "RdbSoloPermessoCML")
+                return 4; //!prenotazione visita cml
+
+
+
+
             else if (MyRdbScelta == "RdbDuduplicatocc")
-                return 3; //!duplicato DU attraverso carabinieri
+                return 5; //!duplicato DU attraverso carabinieri
             else if (MyRdbScelta == "RdbPNRichiesta")
-                return 4; //!patente nautica - solo richiesta tagliando
+                return 6; //!patente nautica - solo richiesta tagliando
             else if (MyRdbScelta == "RdbPNVisita")
-                return 5; //!patente nautica - solo visita
+                return 7; //!patente nautica - solo visita
             else if (MyRdbScelta == "RdbPNTutto")
-                return 6; //!patente nautica - visita e richiesta
+                return 8; //!patente nautica - visita e richiesta
             else if (MyRdbScelta == "RdbREVE")
-                return 7; //!reve - registro veicoli esteri
+                return 9; //!reve - registro veicoli esteri
             else
-                return 8;
+                return 10;
         }
 
         //alle calcola ipt con valori fissi
@@ -137,6 +146,10 @@ namespace agenzia2.Views
             if (RdbPatduplicatocc.IsChecked == false &&
                 RdbCmlvisita.IsChecked == false &&
                 RdbCmlprenotazione.IsChecked == false &&
+
+                RdbConPermessoCML.IsChecked == false &&
+                RdbSoloPermessoCML.IsChecked == false &&
+
                 RdbDuduplicatocc.IsChecked == false &&
                 RdbPNRichiesta.IsChecked == false &&
                 RdbPNVisita.IsChecked == false &&
@@ -193,17 +206,24 @@ namespace agenzia2.Views
                 mystring = "Bollettini per visita presso CML già prenotata";
             else if (i == 2)
                 mystring = "Prenotazione visita presso CML";
+
             else if (i == 3)
-                mystring = "Duplicato DU tramite Carabinieri";
+                mystring = "Prenotazione visita presso CML e permesso di guida";
             else if (i == 4)
-                mystring = "Richiesta Patente nautica - visita già fatta";
+                mystring = "Solo permesso di guida dopo prenotazione visita presso CML";
+
+
             else if (i == 5)
-                mystring = "Patente nautica - solo visita";
+                mystring = "Duplicato DU tramite Carabinieri";
             else if (i == 6)
-                mystring = "Patente nautica - visita e richiesta";
+                mystring = "Richiesta Patente nautica - visita già fatta";
             else if (i == 7)
-                mystring = "REVE - registro veicoli esteri";
+                mystring = "Patente nautica - solo visita";
             else if (i == 8)
+                mystring = "Patente nautica - visita e richiesta";
+            else if (i == 9)
+                mystring = "REVE - registro veicoli esteri";
+            else if (i == 10)
                 mystring = "n/a";
 
             ArticoliCarrello artcar = new ArticoliCarrello(TxtTotale.Text, "PagoPA/CML", mystring);

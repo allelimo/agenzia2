@@ -16,11 +16,13 @@
             <RadioButton x:Name="RdbPatduplicatocc" Content="Patente - duplicato tramite carabinieri - [2E]" Margin="300,24,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbCmlvisita" Content="CML/Asl - visita GIA' prenotata - [2S]" Margin="300,61,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbCmlprenotazione" Content="CML - prenotazione visita - [2S]" Margin="300,98,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
-            <RadioButton x:Name="RdbDuduplicatocc" Content="DU - duplicato tramite Carabinieri - [J6]" Margin="300,135,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Width="285" />
-            <RadioButton x:Name="RdbPNRichiesta" Content="Patente nautica - Solo richiesta (visita GIA' fatta)" Margin="300,200,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
-            <RadioButton x:Name="RdbPNVisita" Content="Patente nautica - Solo visita" Margin="300,237,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
-            <RadioButton x:Name="RdbPNTutto" Content="Patente nautica - visita e richiesta" Margin="300,274,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
-            <RadioButton x:Name="RdbREVE" Content="REVE - Registro Veicoli Esteri" Margin="300,339,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
+            <RadioButton x:Name="RdbConPermessoCML" Content="Con permesso dopo prenotazione CML - [D1]" Margin="331,135,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Width="386" />
+            <RadioButton x:Name="RdbSoloPermessoCML" Content="Solo permesso dopo prenotazione CML - [D1]" Margin="300,172,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Width="417" />
+            <RadioButton x:Name="RdbDuduplicatocc" Content="DU - duplicato tramite Carabinieri - [J6]" Margin="300,209,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Width="285" />
+            <RadioButton x:Name="RdbPNRichiesta" Content="Patente nautica - Solo richiesta (visita GIA' fatta)" Margin="300,274,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
+            <RadioButton x:Name="RdbPNVisita" Content="Patente nautica - Solo visita" Margin="300,311,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
+            <RadioButton x:Name="RdbPNTutto" Content="Patente nautica - visita e richiesta" Margin="300,348,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
+            <RadioButton x:Name="RdbREVE" Content="REVE - Registro Veicoli Esteri" Margin="300,413,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" Visibility="Visible" />
 
 
             <ToggleSwitch x:Name="TswRaccomandata" Header="Raccomandata" Margin="0,328,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>

@@ -19,13 +19,12 @@
             <RadioButton x:Name="RdbRiclassificazione" Content="Riclassificazione - [2H]" Margin="300,252,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbInternazionale" Content="Internazionale - [26]" Margin="300,289,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <RadioButton x:Name="RdbEstera" Content="Conversione estera - [ue: 2M] [extra ue: 2L]" Margin="300,326,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
-            <RadioButton x:Name="RdbPermessoCM" Content="Permesso CM - [D1]" Margin="300,363,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
-            <RadioButton x:Name="RdbVisitaFatta" Content="Visita già fatta" Margin="300,400,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <RadioButton x:Name="RdbVisitaFatta" Content="Visita già fatta" Margin="300,363,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <ToggleSwitch x:Name="TswDati" Header="" OnContent="Variazione dati" OffContent="Variazione dati" Margin="331,87,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled"/>
             <ToggleSwitch x:Name="TswSmarrita" Header="" OnContent="Smarrimento/furto" OffContent="Smarrimento/furto" Margin="331,116,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
             <ToggleSwitch x:Name="TswDati2" Header="" OnContent="Variazione dati" OffContent="Variazione dati" Margin="331,216,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
-            <ToggleSwitch x:Name="TswVecchio" Header="" OnContent="CM vecchio" OffContent="CM nuovo" Margin="331,426,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
-            <RadioButton x:Name="RdbAttestato" Content="Attestato di validità - [BM]" Margin="300,462,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
+            <ToggleSwitch x:Name="TswVecchio" Header="" OnContent="CM vecchio" OffContent="CM nuovo" Margin="331,389,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
+            <RadioButton x:Name="RdbAttestato" Content="Attestato di validità - [BM]" Margin="300,425,0,0" VerticalAlignment="Top" Checked="RdbGruppo_Checked" />
             <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top"/>
             <Button x:Name="BtnCarrello" Content="Carrello" Width="150" Click="BtnCarrello_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top" />
             <HyperlinkButton x:Name="patente_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
