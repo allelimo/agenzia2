@@ -35,6 +35,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="335,50,0,0" Text="Cambio indirizzo, Vendita solo MTC" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="30" Width="172"/>
             <TextBlock HorizontalAlignment="Left" Margin="445,92,0,0" Text="Smarrimento, furto, deterioramento" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="27" Width="194"/>
             <TextBlock HorizontalAlignment="Left" Margin="444,149,0,0" Text="Comodato d'uso, Successione, Cambio Ragione Sociale " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="29" Width="169"/>
+            <TextBlock HorizontalAlignment="Left" Margin="512,206,0,0" Text="Tagliando veicoli storici" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="27" Width="194"/>
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.
