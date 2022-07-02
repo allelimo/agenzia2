@@ -236,6 +236,13 @@ namespace agenzia2.Views
             GlobalData.OpenSettingFile(hpl.Name + ".txt");
         }
 
+        private void HyperlinkButton_pdf_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            HyperlinkButton hpl = sender as HyperlinkButton;
+            GlobalData.OpenSettingFile(hpl.Name + ".pdf");
+        }
+
+
         private void TxtKwh_GotFocus(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             TxtKwh.SelectAll();
@@ -337,7 +344,6 @@ namespace agenzia2.Views
             }
 
         }
-
 
         //alle calcola ipt con valori fissi
         private void CalcolaIptFissa()
