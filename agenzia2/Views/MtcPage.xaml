@@ -25,7 +25,7 @@
 
             <ToggleSwitch x:Name="TswDeterioramento" Header="" OnContent ="Deterioramento - [1E]" OffContent ="Smarrimento - [J6]" Margin="330,107,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
             <ToggleSwitch x:Name="TswAzienda" Header="" OnContent ="Azienda" OffContent ="Privato" Margin="330,164,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" />
-            <ToggleSwitch x:Name="TswRinnovo" Header="" OnContent ="Rinnovo" OffContent ="Rilascio" Margin="330,332,0,0" Toggled="Tsw_Toggled" VerticalAlignment="Top" />
+            <ToggleSwitch x:Name="TswRinnovo" Header="" OnContent ="Rinnovo [1L]" OffContent ="Rilascio [1K]" Margin="330,332,0,0" Toggled="Tsw_Toggled" VerticalAlignment="Top" />
 
             <ToggleSwitch x:Name="TswRaccomandata" Header="Raccomandata" Margin="0,328,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="4"/>
             <Button Content="Calcola" Width="150" Click="Button_Click" TabIndex="11" Margin="0,390,0,0" VerticalAlignment="Top"/>

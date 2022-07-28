@@ -27,8 +27,8 @@ namespace agenzia2
         public static string[] arrayauto_impiva = new string[7];
         public static string[] arraypra_impiva = new string[11];
         public static string[] arraypra_esente = new string[11];
-        public static string[] arraymtc_impiva = new string[10];
-        public static string[] arraymtc_esente = new string[10];
+        public static string[] arraymtc_impiva = new string[11];
+        public static string[] arraymtc_esente = new string[11];
         public static string[] arraymoto_impiva = new string[8];
         public static string[] arraymoto_esente = new string[8];
         public static string[] arrayspeciale = new string[7];

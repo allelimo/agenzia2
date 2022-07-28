@@ -77,6 +77,7 @@ namespace agenzia2.Views
             bDeterioramento = TswDeterioramento.IsOn;
             bAzienda = TswAzienda.IsOn;
             bRaccomandata = TswRaccomandata.IsOn;
+            bRinnovo = TswRinnovo.IsOn;
             //! per usare messagedialog serve windows.ui.popups
             //! aggiungere async
             //alle dialogo da cancellare una volta controllato il funzionamento
