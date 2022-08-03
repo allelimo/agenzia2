@@ -59,7 +59,7 @@ namespace agenzia2.Views
         // alle variabili per radiobutton
         private string MyRdbScelta = null;
         // alle variabili per toggleswitch
-        private bool bPRA, bEpoca, bDoppia, bRaccomandata = false;
+        private bool bPRA, bEpoca, bDoppia, bRaccomandata, bImport = false;
         //alle variabili per ipt con default
         //private double dbPra = 76.60;
         //private double dbMtc = 29.76;
@@ -92,6 +92,8 @@ namespace agenzia2.Views
                 bDoppia = false;
                 TswRaccomandata.IsOn = false;
                 bRaccomandata = false;
+                TswImport.IsOn = false;
+                bImport = false;
             }
             else
             {
@@ -115,6 +117,11 @@ namespace agenzia2.Views
                     TswRaccomandata.IsOn = false;
                     bRaccomandata = false;
                 }
+                if (TswImport != null)
+                {
+                    TswImport.IsOn = false;
+                    bImport = false;
+                }
 
             }
             if (MyRdbScelta != "RdbTrasferimento")
@@ -129,6 +136,7 @@ namespace agenzia2.Views
             bEpoca = TswEpoca.IsOn;
             bDoppia = TswDoppia.IsOn;
             bRaccomandata = TswRaccomandata.IsOn;
+            bImport = TswImport.IsOn;
             //! per usare messagedialog serve windows.ui.popups
             //! aggiungere async
             //alle dialogo da cancellare una volta controllato il funzionamento
@@ -175,8 +183,14 @@ namespace agenzia2.Views
                         db53esente += dbNotaPra;
                     if (bRaccomandata)
                         db53esente += dbRaccomandata;
+                    if (bImport)
+                    {
+                        db53esente += 130;
+                        db53impiva += 20;
+                    }
 
                     double db53totale = db53esente + db53impiva;
+
                     TxtEsente.Text = db53esente.ToString("N2");
                     TxtImpiva.Text = db53impiva.ToString("N2");
                     TxtTotale.Text = db53totale.ToString("n2");
@@ -208,6 +222,12 @@ namespace agenzia2.Views
                     {
                         dbEsente += dbRaccomandata;
                         dbTotale += dbRaccomandata;
+                    }
+                    if (bImport)
+                    {
+                        dbEsente += 130;
+                        dbTotale += 150;
+
                     }
 
                     double dbImpiva = dbTotale - dbEsente;

@@ -34,13 +34,14 @@
                     <KeyboardAccelerator Key="W" Modifiers="Control"/>
                 </CheckBox.KeyboardAccelerators>
             </CheckBox>
-            <TextBox x:Name="TxtCavalli" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Cavalli:" Width="75" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus" KeyDown="TxtCavalli_KeyDown" Margin="300,320,0,0"/>
-            <TextBox x:Name="TxtCavtoKwh" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Kwh" Width="75" Margin="388,320,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
-            <TextBox x:Name="TxtKwh_conv" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Kwh:" Width="75" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus" KeyDown="TxtKwh_conv_KeyDown" Margin="300,380,0,0"/>
-            <TextBox x:Name="TxtKwhtoCav" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Cavalli" Width="75" Margin="388,380,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtCavalli" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Cavalli:" Width="75" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus" KeyDown="TxtCavalli_KeyDown" Margin="300,340,0,0"/>
+            <TextBox x:Name="TxtCavtoKwh" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Kwh" Width="75" Margin="388,340,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
+            <TextBox x:Name="TxtKwh_conv" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Kwh:" Width="75" TabIndex="0" BeforeTextChanging="TxtKwh_BeforeTextChanging" GotFocus="TxtKwh_GotFocus" KeyDown="TxtKwh_conv_KeyDown" Margin="300,400,0,0"/>
+            <TextBox x:Name="TxtKwhtoCav" HorizontalAlignment="Left" Text="0" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Header="Cavalli" Width="75" Margin="388,400,0,0" TabIndex="3" IsReadOnly="True" IsTabStop="False"/>
             <HyperlinkButton x:Name="elencopaesiue" Content="Elenco paesi UE" Margin="0,608,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="istanzaunica" Content="Istanza Unica da compilare" Margin="0,642,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_pdf_Click"/>
             <HyperlinkButton x:Name="cambiopassword" Content="Cambio password Motorizzazione" Margin="0,676,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
+            <ToggleSwitch x:Name="TswImport" Header="Importazione" Margin="300,277,0,0" VerticalAlignment="Top" Toggled="Tsw_Toggled" TabIndex="10"/>
 
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
