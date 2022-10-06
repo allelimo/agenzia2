@@ -415,7 +415,7 @@ namespace agenzia2.Views
             else if (MyRdbScelta == "RdbDini")
                 return 7; //!dini nromale
             else if (MyRdbScelta == "RdbAtto")
-                return 8;//!separazione epoca
+                return 8;//!separazione
             else
                 return 0;
         }

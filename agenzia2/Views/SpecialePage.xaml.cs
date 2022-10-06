@@ -300,9 +300,9 @@ namespace agenzia2.Views
             else if (MyRdbScelta == "RdbSuccessione" && bDoppia)
                 return 2; //!successione doppia
             else if (MyRdbScelta == "RdbDini")
-                return 3; //!dini nromale
+                return 3; //!dini normale
             else if (MyRdbScelta == "RdbAtto")
-                return 4;//!separazione epoca
+                return 4;//!separazione
             else
                 return 5;
         }
