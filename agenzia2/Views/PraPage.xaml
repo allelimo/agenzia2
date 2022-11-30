@@ -29,7 +29,8 @@
             <Button x:Name="BtnCarrello" Content="Carrello" Width="150" Click="BtnCarrello_Click" TabIndex="11" Margin="0,428,0,0" VerticalAlignment="Top" />
             <HyperlinkButton x:Name="pra_esente" Content="Apri il file di configurazione per art. 15" Margin="0,479,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
             <HyperlinkButton x:Name="pra_impiva" Content="Apri il file di configurazione per Imponibile + IVA" Margin="0,511,0,0" VerticalAlignment="Top" TabIndex="12" Click="HyperlinkButton_Click"/>
-            <HyperlinkButton x:Name="varie_pra" Content="Varie per bollo, superbollo e familiri a carico" TabIndex="12" Click="HyperlinkButton_Click" Margin="0,575,0,0" VerticalAlignment="Top"/>
+            <HyperlinkButton x:Name="varie_pra" Content="Varie per bollo, superbollo e familiari a carico" TabIndex="12" Click="HyperlinkButton_Click" Margin="0,575,0,0" VerticalAlignment="Top"/>
+            <HyperlinkButton x:Name="coniugi" Content="Eredità coniugi senza figli" TabIndex="12" Click="HyperlinkButton_Click" Margin="0,610,0,0" VerticalAlignment="Top"/>
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.
