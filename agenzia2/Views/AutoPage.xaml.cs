@@ -153,6 +153,9 @@ namespace agenzia2.Views
             //converti anche kwh e cavalli
             CalcolaKwhdaCavalli();
             CalcolaCavallidaKwh();
+            //togli lo switch da "importazione"
+            //bImport = false;
+            //TswImport.IsOn = false;
         }
 
         //alle calcola ipt proporzionale usando i dati degli array
